@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import Scroll from '../Scroll/Scroll.js';
+import CardContainer from '../CardContainer/CardContainer.js';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+       Amy and Francys SWAPI box
       </div>
     );
   }
