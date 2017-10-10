@@ -4,6 +4,12 @@ import './card-styles.css';
 
 const Card = () => {
 
+  return (
+    <article className='card'>
+      card
+    </article>
+  );
+
 };
 
 // Card.propTypes = {

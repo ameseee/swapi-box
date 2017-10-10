@@ -4,6 +4,12 @@ import './button-styles.css';
 
 const Button = () => {
 
+  return (
+    <button className='button'>
+      Button
+    </button>
+  );
+
 };
 
 // Button.propTypes = {

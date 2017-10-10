@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Scroll.css';
+import './scroll-styles.css';
 
 const Scroll = () => {
   return (
     <div className='scroll'>
-
+      scroll
     </div>
   );
 };
