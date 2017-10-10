@@ -9,9 +9,27 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      scroll: []
     };
   }
+
+  componentDidMount() {
+    fetch('https://swapi.co/api/films/')
+      .then(result => result.json())
+      .then(dataObj => dataObj.results)
+      .then(resultsArray => {
+        const scrollData = resultsArray.map(film => {
+          const title = film.title;
+          const crawl = film.opening_crawl;
+          const releaseDate = film.release_date;
+          return [title, crawl, releaseDate];
+        });
+        this.setState({ scroll: scrollData });
+      })
+      .catch(err => console.log(err));
+
+  }
+
 
   render() {
     return (
@@ -19,7 +37,7 @@ class App extends Component {
        Amy and Francys SWAPI box
         <ButtonContainer />
         <CardContainer />
-        <Scroll />
+        <Scroll scrollData={this.state.scroll}/>
       </div>
     );
   }
