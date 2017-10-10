@@ -1,3 +1,9 @@
+@import './Components/App/App.css';
+@import './Components/Button/button-styles.css';
+@import './Components/ButtonContainer/button-container-styles.css';
+@import './Components/Card/card-styles.css';
+@import './Components/CardContainer/card-container-styles.css';
+@import './Components/Scroll/scroll-styles.css';
 
 
 * {
