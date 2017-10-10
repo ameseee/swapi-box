@@ -5,6 +5,13 @@ import './card-container-styles.css';
 
 const CardContainer = () => {
 
+  return (
+    <div className='card-container'>
+      Card Container
+      <Card />
+    </div>
+  );
+
 };
 
 // CardContainer.propTypes = {
