@@ -11,55 +11,65 @@ class App extends Component {
     super();
     this.state = {
       scroll: [],
-      people: {}
+      people: {},
+      planets: {}
+      // planets:
     };
   }
 
-  fetchIntro() {
-    return fetch('https://swapi.co/api/films/')
+  fetchSwapi() {
+    const fetchIntro = fetch('https://swapi.co/api/films/')
       .then(result => result.json())
       .then(scrollData =>  cleanScroll(scrollData))
       .catch(error => console.log(error));
-  }
 
-  fetchPeople() {
-    return fetch('https://swapi.co/api/people/')
+
+    const fetchPeople = fetch('https://swapi.co/api/people/')
       .then(result => result.json())
       .then(peopleData => cleanPeople(peopleData))
       .catch(error => console.log(error));
-  }
 
-  fetchPlanets() {
-    return fetch('https://swapi.co/api/planets/')
+
+    const fetchPlanets = fetch('https://swapi.co/api/planets/')
       .then(result => result.json())
       .then(planets => cleanPlanets(planets))
       .catch(error => console.log(error));
+
+    return Promise.all([fetchIntro, fetchPeople, fetchPlanets])
+      .catch(() => console.log('Promise.all error'))
+
   }
 
+
+//   this.fetchPromise()
+//     .then((promises) => {
+//       this.setState({
+//         movieCrawls: promises[0],
+//         people: promises[1],
+//         planets: promises[2],
+//         vehicles: promises[3]
+//       })
+//     })
+//   console.log('state set and app mounted!');
+// }
+
   componentDidMount() {
-    this.fetchIntro()
-      .then((intro) => {
+    this.fetchSwapi()
+      .then((resolvedPromise) => {
         this.setState({
-          scroll: intro
+          scroll: resolvedPromise[0],
+          people: resolvedPromise[1],
+          planets: resolvedPromise[2]
         });
       });
+    console.log('state set and app mounted!');
 
-    this.fetchPeople()
-      .then((people) => {
-        this.setState({
-          people
-        });
-      });
-
-    this.fetchPlanets()
-      .then((planets) => {
-        this.setState({
-          planets: planets
-        });
-      });
   }
 
   render() {
+    console.log(this.state.people);
+    const peopleArray = [this.state.people]
+
     return (
       <main className="App">
        Amy and Francys SWAPI box

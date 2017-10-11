@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../index.css';
 
-const Card = () => {
-
+const Card = ({ name }) => {
+console.log(name);
   return (
     <article className='card'>
-      card
+      { name }
     </article>
   );
 
