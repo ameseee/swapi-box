@@ -10,6 +10,10 @@ export const cleanScroll = (scrollData) => {
 
 };
 
+
+
+
+
 // export const cleanPeople = (peopleData) => {
 //   const peopleResults = peopleData.results;
 //
