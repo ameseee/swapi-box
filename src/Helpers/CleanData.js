@@ -9,6 +9,18 @@ export const cleanScroll = (scrollData) => {
   });
 };
 
+export const cleanVehicles = (vehicle) => {
+  const vehicleResults = vehicle.results;
+
+  return vehicleResults.map(vehicle => {
+    const name = vehicle.name;
+    const model = vehicle.model;
+    const passengers = vehicle.passengers;
+    const vehicleClass = vehicle.vehicle_class;
+    return [name, model, passengers, vehicleClass];
+  });
+};
+
 export const cleanPeople= (peopleData) => {
   const peopleResults = peopleData.results;
 
@@ -21,17 +33,18 @@ export const cleanPeople= (peopleData) => {
     fetchHomeWorlds(person)
       .then(homeworld => {
         acc[person.url].homeworld = homeworld;
+        console.log(acc[person.url].homeworld);
       });
 
     fetchSpecies(person)
       .then(species => {
         acc[person.url].species = species;
       });
+      console.log(acc[person.url].species);
 
     return acc;
   }, {});
 };
-
 
 export const fetchHomeWorlds = (person) => {
   return fetch(person.homeworld)
@@ -48,7 +61,7 @@ export const fetchHomeWorlds = (person) => {
 export const fetchSpecies = (person) => {
   return fetch(person.species)
     .then(response => response.json())
-    .then(species => species)
+    .then(species => species.name)
     .catch(error => console.log(error));
 };
 
