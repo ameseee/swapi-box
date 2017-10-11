@@ -4,8 +4,7 @@ import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
-import { cleanScroll } from '../../Helpers/CleanData';
-import { cleanPeople } from '../../Helpers/CleanData';
+import { cleanScroll, cleanPeople, fetchHomeWorlds, fetchSpecies, cleanPlanets, fetchResident } from '../../Helpers/CleanData';
 
 class App extends Component {
   constructor() {
@@ -14,8 +13,6 @@ class App extends Component {
       scroll: [],
       people: {}
     };
-    this.fetchHomeWorlds = this.fetchHomeWorlds.bind(this);
-    this.fetchSpecies = this.fetchSpecies.bind(this);
   }
 
   fetchIntro() {
@@ -28,42 +25,14 @@ class App extends Component {
   fetchPeople() {
     return fetch('https://swapi.co/api/people/')
       .then(result => result.json())
-      .then(peopleObj => peopleObj.results)
-      .then(peopleData => peopleData.reduce((acc, person) => {
-        acc[person.url] = {
-          name: person.name,
-          species: person.species
-        };
-
-        this.fetchHomeWorlds(person)
-          .then(homeworld => {
-            acc[person.url].homeworld = homeworld;
-          });
-
-        this.fetchSpecies(person)
-          .then(species => {
-            acc[person.url].species = species;
-          });
-        console.log(acc);
-        return acc;
-      }, {}));
-
-  }
-
-  fetchSpecies(person) {
-    return fetch(person.species)
-      .then(response => response.json())
-      .then(species => species)
+      .then(peopleData => cleanPeople(peopleData))
       .catch(error => console.log(error));
   }
 
-  fetchHomeWorlds(person) {
-    return fetch(person.homeworld)
-      .then(response => response.json())
-      .then(planet => {
-        return {name: planet.name,
-        population: planet.population}
-      })
+  fetchPlanets() {
+    return fetch('https://swapi.co/api/planets/')
+      .then(result => result.json())
+      .then(planets => cleanPlanets(planets))
       .catch(error => console.log(error));
   }
 
@@ -74,10 +43,18 @@ class App extends Component {
           scroll: intro
         });
       });
+
     this.fetchPeople()
       .then((people) => {
         this.setState({
           people
+        });
+      });
+
+    this.fetchPlanets()
+      .then((planets) => {
+        this.setState({
+          planets: planets
         });
       });
   }
