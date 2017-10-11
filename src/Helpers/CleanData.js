@@ -63,14 +63,13 @@ export const cleanPlanets = (planets) => {
       climate: planet.climate,
       population: planet.population
     };
-    
+
     // fetchResident(planet.residents)
     //   .then(response => response.json())
     //   .then(resident => {
     //     acc.residents = resident
     //   });
 
-    console.log(acc);
     return acc;
   }, {});
 
