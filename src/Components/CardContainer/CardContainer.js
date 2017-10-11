@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import '../../index.css';
 
-const CardContainer = () => {
+const CardContainer = ({people, planets, vehicles}) => {
 
   return (
     <div className='card-container'>

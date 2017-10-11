@@ -1,30 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getRandomInt } from '../../Helpers/helper.js';
 import '../../index.css';
 
+const Scroll = ({ scrollData }) => {
+  
+  const [title, text, date] = scrollData[getRandomInt(0, 6)];
 
-const Scroll = () => {
   return (
     <div>
-      <div className='crawl-container'>
+      <div className='scroll'>
         <div className='fade'>
           <h1 className='title'>SWAPI-BOX</h1>
-          {/* <Button className=' button favorite'/> */}
         </div>
         <div className='star-wars'>
           <div className='crawl'>
-            <p className='crawl-text'>text</p>
-            <p className='film-title'>filmTitle</p>
-            <p className='release-date'>releaseDate</p>
+            <p className='film-title'>{title}</p>
+            <p className='crawl-text'>{text}</p>
+            <p className='release-date'>{date}</p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
-// Scroll.propTypes = {
-//   scroll: PropTypes.object
-// };
+Scroll.propTypes = {
+  scrollData: PropTypes.array.isRequired
+};
 
 export default Scroll;
