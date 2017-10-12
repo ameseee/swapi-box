@@ -92,6 +92,7 @@ class App extends Component {
   }
 
   render() {
+    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected } = this.state
     if (!Object.keys(this.state.people).length &&
         !Object.keys(this.state.planets).length &&
         !Object.keys(this.state.vehicles).length &&
@@ -109,10 +110,12 @@ class App extends Component {
           <section>
             <article className='cards'>
               <CardContainer
-                vehicles={this.state.cleanedVehicles}
-                planets={this.state.cleanedPlanets}
-                people={this.state.cleanedPeople}
-                selected={this.state.selected} />
+                vehicles={cleanedVehicles}
+                planets={cleanedPlanets}
+                people={cleanedPeople}
+                selected={selected}
+
+              />
             </article>
             <article className='video-container'>
               <Video />
