@@ -101,23 +101,29 @@ class App extends Component {
       );
     }  else {
       return (
-        <main className="App">
-          <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
-          <ButtonContainer
-            handleClick={this.handleClick}
-            selected={this.state.selected} />
-          {/* <Video /> */}
-          <section>
-            <CardContainer
-              vehicles={this.state.cleanedVehicles}
-              planets={this.state.cleanedPlanets}
-              people={this.state.cleanedPeople}
-              selected={this.state.selected} />
-          </section>
-          {/* <Video /> */}
-          {
-            this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
-          }
+      <main className="App">
+        {console.log('we are inside ELSE')}
+       <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
+       <ButtonContainer
+         handleClick={this.handleClick}
+         selected={this.state.selected} />
+        <section>
+         <article className='cards'>
+         <CardContainer
+           vehicles={this.state.cleanedVehicles}
+           planets={this.state.cleanedPlanets}
+           people={this.state.cleanedPeople}
+           selected={this.state.selected} />
+         </article>
+         <article className='video-container'>
+           <Video />
+         </article>
+       </section>
+
+        {
+          this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
+        }
+         
 
         </main>
       );

@@ -1,9 +1,16 @@
 section {
   display: flex;
+  flex-direction: row; }
+
+article {
+  width: 50%; }
+
+.cards {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  height: 400px;
+  height: 100vh;
   overflow-y: overlay;
   background: black; }
 
