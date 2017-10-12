@@ -1,6 +1,6 @@
 import React from 'react';
 import './Video.css';
-import theVideo from '../../assets/stars.mp4'
+import theVideo from '../../assets/stars.mp4';
 
 const Video = () => {
 
@@ -13,9 +13,5 @@ const Video = () => {
   );
 
 };
-
-// Button.propTypes = {
-//
-// };
 
 export default Video;
