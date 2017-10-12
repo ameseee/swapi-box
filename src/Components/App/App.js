@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
+import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
 import { cleanScroll, cleanPeople, fetchHomeWorlds, fetchSpecies, cleanPlanets, cleanVehicles, fetchResident, indexRecords } from '../../Helpers/CleanData';
@@ -80,6 +81,9 @@ class App extends Component {
        Amy and Francys SWAPI box
         <ButtonContainer />
         {/* this.state.people && <CardContainer
+       <ButtonContainer />
+        <Video />
+        {/* <CardContainer
           people={this.state.people}
           planets={this.state.planets}
           vehicles={this.state.vehicles} /> */}
