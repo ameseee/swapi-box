@@ -9,16 +9,52 @@ export const cleanScroll = scrollData => {
   });
 };
 
-export const cleanAllRecords = ({people, planets, vehicles}) => {
-  const cleanedVehicleResults = cleanVehicles(vehicles);
-  const cleanedPeopleResults = cleanPeople(people, planets);
-  const cleanedPlanetsResults = cleanPlanets(planets, people);
-
+export const cleanAllRecords = ({people, planets, vehicles, species}) => {
   return {
-    vehicles: cleanedVehicleResults,
-    people: cleanedPeopleResults,
-    planets: cleanedPlanetsResults
+    vehicles: cleanVehicles(vehicles),
+    people: cleanPeople(people, planets, species),
+    planets: cleanPlanets(planets, people),
+    species: cleanSpecies(species, people)
   };
+};
+
+export const cleanSpecies = (species, people) => {
+  const speciesValues = Object.values(species);
+  const peopleValues = Object.values(people);
+
+  return peopleValues.reduce((acc, person) => {
+    const findSpeciesMath = speciesValues.filter(type => {
+      if (type.url === person.species[0]) {
+        acc[type.url] = type.name;
+        return;
+      }
+    });
+
+    return acc;
+  }, {});
+};
+
+const cleanPeople = (people, planets, species) => {
+  const peopleValues = Object.values(people);
+  const planetValues = Object.values(planets);
+  const speciesUrls = Object.keys(cleanSpecies(species, people));
+
+//iterate over speciesUrls and find the one that matches person.species[0]
+
+  return peopleValues.reduce((acc, person) => {
+    const findUrlMatch = planetValues.find(planet => {
+      if (planet.url === person.homeworld) return planet.name;
+    });
+
+    acc[person.url] = {
+      name: person.name,
+      homeworld: findUrlMatch.name,
+      population: findUrlMatch.population,
+      species: 'species'
+    };
+
+    return acc;
+  }, {});
 };
 
 const cleanVehicles = (vehicleResults) => {
@@ -36,7 +72,7 @@ const cleanVehicles = (vehicleResults) => {
 };
 
 
-export const cleanPlanets = (planets, people) => {
+const cleanPlanets = (planets, people) => {
   const planetValues = Object.values(planets);
 
   return planetValues.reduce((acc, planet) => {
@@ -49,65 +85,13 @@ export const cleanPlanets = (planets, people) => {
         return people[residentUrl];
       })
     };
-    // console.log('residents', acc[planet.url].residents);
     return acc;
   }, {});
 };
-
-export const cleanPeople = (people, planets) => {
-  const peopleValues = Object.values(people);
-
-  return peopleValues.reduce((acc, person) => {
-//     if () {
-//       if planet url matches persome homeworld url, then s
-//     }
-//     acc[person.url] = {
-//       name: person.name,
-//       homeworld: person.homeworld
-// //person.homeworld === planets.name
-//     }
-return acc;
-  })
-}
 
 export const indexRecords = records => {
   return records.reduce((acc, person) => {
     acc[person.url] = person;
-    return acc;
-  }, {});
-};
-
-export const fetchHomeWorlds = (person) => {
-  return fetch(person.homeworld)
-    .then(response => response.json())
-    .then(planet => {
-      return {
-        name: planet.name,
-        population: planet.population
-      };
-    })
-    .catch(error => console.log(error));
-};
-
-export const fetchSpecies = (person) => {
-  return fetch(person.species)
-    .then(response => response.json())
-    .then(species => species.name)
-    .catch(error => console.log(error));
-};
-
-
-export const fetchResident = (residents) => {
-
-  return residents.reduce((acc, resident) => {
-    fetch(resident)
-      .then(response => response.json())
-      .then(resident => resident.name)
-      .then(resName => {
-        acc.resident = resName;
-      })
-      .catch(error => console.log(error));
-
     return acc;
   }, {});
 };
