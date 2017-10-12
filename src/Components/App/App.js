@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
-import Video from '../Video/Video.js';
+//import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
-import { cleanScroll, cleanPeople, fetchSpecies, cleanPlanets, indexRecords, cleanAllRecords } from '../../Helpers/CleanData';
+import { cleanScroll, indexRecords, cleanAllRecords } from '../../Helpers/CleanData';
 
 class App extends Component {
   constructor() {
@@ -22,6 +22,9 @@ class App extends Component {
       selected: ''
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
+    // this.handleClickPeople = this.handleClickPeople.bind(this);
+    // this.handleClickPlanets = this.handleClickPlanets.bind(this);
+    // this.handleClickVehicles = this.handleClickVehicles.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -36,7 +39,7 @@ class App extends Component {
           this.setState({
             cleanedPlanets: cleanAllRecords(this.state).planets,
             cleanedVehicles: cleanAllRecords(this.state).vehicles,
-            cleanedPeople: cleanAllRecords(this.state).people,
+            cleanedPeople: (cleanAllRecords(this.state).people),
             cleanedSpecies: cleanAllRecords(this.state).species
           });
         }
@@ -87,9 +90,31 @@ class App extends Component {
     });
   }
 
+  // handleClickPlanets(event) {
+  //   this.setState({
+  //     selected: event.target.value
+  //   });
+  // }
+  //
+  // handleClickVehicles(event) {
+  //   this.setState({
+  //     selected: event.target.value
+  //   });
+  // }
+
   render() {
-    return (
+    if (!Object.keys(this.state.people).length &&
+        !Object.keys(this.state.planets).length &&
+        !Object.keys(this.state.vehicles).length &&
+        !this.state.scroll.length) {
+          {console.log('we are inside IF')}
+      return (
+        <div>LOADING!!!!!!!!!!!!!!!!!!!!!!!</div>
+      );
+    }  else {
+      return (
       <main className="App">
+        {console.log('we are inside ELSE')}
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer
          handleClick={this.handleClick}
@@ -99,13 +124,26 @@ class App extends Component {
         {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
-        <CardContainer
-          vehicles={this.state.cleanedVehicles}
-          planets={this.state.cleanedPlanets}
-          people={this.state.cleanedPeople}/>
-      </main>
-    );
+          <CardContainer
+            vehicles={this.state.cleanedVehicles}
+            planets={this.state.cleanedPlanets}
+            people={this.state.cleanedPeople}
+            selected={this.state.selected} />
+        </main>
+      );
+    }
   }
 }
 
 export default App;
+
+// if (this.state.selected === 'vehicles') {
+//   <CardContainer
+//     vehicles={this.state.cleanedVehicles} />
+// } else if (this.state.selected === 'people') {
+//   <CardContainer
+//     people={this.state.cleanedPeople} />
+// } else if (this.state.selected === 'planets') {
+//   <CardContainer
+//     planets={this.state.cleanedPlanets} />
+// }

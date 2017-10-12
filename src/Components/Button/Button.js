@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../index.css';
 
 const Button = ({value, handleClick}) => {
+  //  console.log('handleclick in button:', handleClickPeople);
 
   return (
     <button
