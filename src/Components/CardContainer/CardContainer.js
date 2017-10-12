@@ -3,11 +3,23 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import '../../index.css';
 
-const CardContainer = ({ people, planets, vehicles }) => {
-//console.log('people in CC: ', people);
-  console.log('vehicles: ', vehicles);
+const CardContainer = ({ vehicles }) => {
+  const vehicleValues = Object.values(vehicles);
+  console.log(vehicleValues);
 
-  return <Card vehicles={vehicles} />
+  return vehicleValues.map(vehicle => {
+    console.log(vehicle);
+    return <Card
+      key={vehicle.url}
+      name={vehicle.name}
+      model={vehicle.model}
+      passengers={vehicle.passengers}
+      vehicleClass={vehicle.vehicleClass} />
+  });
+  //console.log('vehicles: ', Object.values(vehicleValues[0]));
+
+
+  // return <Card vehicles={vehicles} />
 
   // const peopleKeys = Object.keys(people)
 
@@ -25,7 +37,7 @@ const CardContainer = ({ people, planets, vehicles }) => {
 
 
 // CardContainer.propTypes = {
-//
+//   cleanedSwapi: PropTypes.array
 // };
 
 export default CardContainer;

@@ -15,8 +15,6 @@ class App extends Component {
       people: {},
       planets: {},
       vehicles: {},
-      cleanedPeople: {},
-      cleanedPlanets: {},
       cleanedVehicles: {}
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
@@ -30,7 +28,9 @@ class App extends Component {
         if (Object.keys(this.state.people).length &&
             Object.keys(this.state.planets).length &&
             Object.keys(this.state.vehicles).length) {
-          cleanAllRecords(this.state);
+          this.setState({
+            cleanedVehicles: cleanAllRecords(this.state).vehicles
+          });
         }
       });
       return;
@@ -74,20 +74,17 @@ class App extends Component {
   }
 
   render() {
-    const peopleArray = [this.state.people]
-
     return (
       <main className="App">
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer />
-        <Video />
-        {/* <CardContainer
-          people={this.state.people}
-          planets={this.state.planets}
-          vehicles={this.state.vehicles} /> */}
+        {/* <Video /> */}
+
         {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
+        <CardContainer
+          vehicles={this.state.cleanedVehicles} />
       </main>
     );
   }
