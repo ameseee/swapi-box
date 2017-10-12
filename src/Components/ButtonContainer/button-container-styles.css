@@ -1,6 +1,3 @@
 .button-container {
-    height: 90px;
-    background: #5d133c;
-    display: flex;
-    justify-content: space-evenly;
+  background: black;
 }

@@ -78,18 +78,16 @@ class App extends Component {
 
     return (
       <main className="App">
-       Amy and Francys SWAPI box
-        <ButtonContainer />
-        {/* this.state.people && <CardContainer
+       <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer />
         <Video />
         {/* <CardContainer
           people={this.state.people}
           planets={this.state.planets}
           vehicles={this.state.vehicles} /> */}
-        {
+        {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
-        }
+        } */}
       </main>
     );
   }
