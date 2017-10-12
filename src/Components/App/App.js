@@ -15,9 +15,11 @@ class App extends Component {
       people: {},
       planets: {},
       vehicles: {},
+      cleanedPlanets: {},
       cleanedVehicles: {}
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -29,6 +31,7 @@ class App extends Component {
             Object.keys(this.state.planets).length &&
             Object.keys(this.state.vehicles).length) {
           this.setState({
+            cleanedPlanets: cleanAllRecords(this.state).planets,
             cleanedVehicles: cleanAllRecords(this.state).vehicles
           });
         }
@@ -73,18 +76,23 @@ class App extends Component {
       });
   }
 
+  handleClick() {
+    console.log('click has been handled');
+  };
+
   render() {
     return (
       <main className="App">
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
-       <ButtonContainer />
+       <ButtonContainer handleClick={this.handleClick}/>
         {/* <Video /> */}
 
         {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
         <CardContainer
-          vehicles={this.state.cleanedVehicles} />
+          vehicles={this.state.cleanedVehicles}
+          planets={this.state.cleanedPlanets} />
       </main>
     );
   }
