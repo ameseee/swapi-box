@@ -85,22 +85,11 @@ class App extends Component {
   }
 
   handleClick(event) {
+    console.log('BEFORE', this.state.selected);
     this.setState({
       selected: event.target.value
-    });
+    }, () => console.log('AFTER', this.state.selected));
   }
-
-  // handleClickPlanets(event) {
-  //   this.setState({
-  //     selected: event.target.value
-  //   });
-  // }
-  //
-  // handleClickVehicles(event) {
-  //   this.setState({
-  //     selected: event.target.value
-  //   });
-  // }
 
   render() {
     if (!Object.keys(this.state.people).length &&
@@ -129,6 +118,7 @@ class App extends Component {
             planets={this.state.cleanedPlanets}
             people={this.state.cleanedPeople}
             selected={this.state.selected} />
+            {console.log('planet state:', this.state.cleanedPlanets)}
         </main>
       );
     }
@@ -136,14 +126,3 @@ class App extends Component {
 }
 
 export default App;
-
-// if (this.state.selected === 'vehicles') {
-//   <CardContainer
-//     vehicles={this.state.cleanedVehicles} />
-// } else if (this.state.selected === 'people') {
-//   <CardContainer
-//     people={this.state.cleanedPeople} />
-// } else if (this.state.selected === 'planets') {
-//   <CardContainer
-//     planets={this.state.cleanedPlanets} />
-// }

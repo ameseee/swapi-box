@@ -17,9 +17,15 @@ const Card = ({
   residents,
   selected
 }) => {
-console.log('selected in CARD', selected);
-//console.log(homeworld, population);
-//console.log(vehicleName, vehicleClass, passengers, model);
+// console.log('residents', residents);
+const residentValues = Object.values({residents})
+//console.log(residentValues);
+
+const mappedResidents = residentValues.reduce((acc, resident, i) => {
+  acc[resident[i]] = resident[i].name;
+  return acc;
+}, [])
+
 if (selected === 'people') {
   return (
     <article className='card'>
@@ -35,12 +41,13 @@ if (selected === 'people') {
       <h4 className="planet-name">NAME:{planetName}</h4>
       <h4 className="homeworld">terrain:{terrain}</h4>
       <h4 className="population">climate:{climate}</h4>
-      <h4 className="species">residents:{residents}</h4>
+      {console.log({residents})}
+      {/* <h4 className="species">residents:{residents}</h4> */}
     </article>
   )
 } else if (selected === 'vehicles') {
   return (
-    <article className='card'>vehicleClass
+    <article className='card'>
       <h4 className="planet-name">Vehicle Name:{vehicleName}</h4>
       <h4 className="homeworld">passengers:{passengers}</h4>
       <h4 className="population">vehicleClass:{vehicleClass}</h4>
