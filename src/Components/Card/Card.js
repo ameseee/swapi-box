@@ -17,16 +17,15 @@ const Card = ({
   residents,
   selected
 }) => {
-// console.log('residents', residents);
-// const residentValues = Object.values({residents})
-//console.log(residentValues);
+  // const residentValues = Object.values(residents);
+  //
+  // const mappedResidents = residentValues.map((resident, i) => {
+  //   return resident.name;
+  // });
+//console.log(model, passengers, vehicleName, vehicleClass);
+//console.log('MAP IN MAP:', mappedResidents);
 
-// const mappedResidents = residentValues.reduce((acc, resident, i) => {
-//   acc[resident[i]] = resident[i].name;
-//   return acc;
-// }, [])
-
-if (selected === 'people') {
+ if (selected === 'people') {
   return (
     <article className='card'>
       <h4 className="person-name">NAME:{personName}</h4>
@@ -61,31 +60,22 @@ if (selected === 'people') {
 } else {
   return <div>LOADING IN CARD</div>;
 }
-}
-    //
-    // <article className='card'>
-    //   <h4 className="vehicleProps name">{vehicleName}</h4>
-    //   <h4 className="vehicleProps model">{model}</h4>
-    //   <h4 className="vehicleProps passengers">{passengers}</h4>
-    //   <h4 className="vehicleProps vehicleClass">{vehicleClass}</h4>
-    //   <span className="card-backfground"></span>
-    // </article>
+};
 
-
-
-// Card.propTypes = {
-//vehicleName,
-// model: PropTypes.,
-// passengers: PropTypes.,
-// vehicleClass: PropTypes.,
-// personName: PropTypes.,
-// homeworld: PropTypes.,
-// population,
-// species,
-// planetName,
-// terrain,
-// climate,
-// residents
-// };
+Card.propTypes = {
+  vehicleName: PropTypes.string,
+  model: PropTypes.string,
+  passengers: PropTypes.string,
+  vehicleClass: PropTypes.string,
+  personName: PropTypes.string,
+  homeworld: PropTypes.string,
+  population: PropTypes.string,
+  species: PropTypes.string,
+  planetName: PropTypes.string,
+  terrain: PropTypes.string,
+  climate: PropTypes.string,
+  residents: PropTypes.array,
+  selected: PropTypes.string
+};
 
 export default Card;
