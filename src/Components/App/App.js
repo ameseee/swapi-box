@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
-import Video from '../Video/Video.js';
+//import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
-import { cleanScroll, indexRecords, cleanAllRecords } from '../../Helpers/CleanData';
+import {
+  cleanScroll,
+  indexRecords,
+  cleanAllRecords
+} from '../../Helpers/CleanData';
 
 class App extends Component {
   constructor() {
@@ -22,9 +26,6 @@ class App extends Component {
       selected: ''
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
-    // this.handleClickPeople = this.handleClickPeople.bind(this);
-    // this.handleClickPlanets = this.handleClickPlanets.bind(this);
-    // this.handleClickVehicles = this.handleClickVehicles.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -39,7 +40,7 @@ class App extends Component {
           this.setState({
             cleanedPlanets: cleanAllRecords(this.state).planets,
             cleanedVehicles: cleanAllRecords(this.state).vehicles,
-            cleanedPeople: (cleanAllRecords(this.state).people),
+            cleanedPeople: cleanAllRecords(this.state).people,
             cleanedSpecies: cleanAllRecords(this.state).species
           });
         }
@@ -85,10 +86,9 @@ class App extends Component {
   }
 
   handleClick(event) {
-    console.log('BEFORE', this.state.selected);
     this.setState({
       selected: event.target.value
-    }, () => console.log('AFTER', this.state.selected));
+    });
   }
 
   render() {
@@ -96,9 +96,8 @@ class App extends Component {
         !Object.keys(this.state.planets).length &&
         !Object.keys(this.state.vehicles).length &&
         !this.state.scroll.length) {
-          {console.log('we are inside IF')}
       return (
-        <div>LOADING!!!!!!!!!!!!!!!!!!!!!!!</div>
+        <main>LOADING...</main>
       );
     }  else {
       return (
@@ -123,8 +122,6 @@ class App extends Component {
            }
          </article>
        </section>
-
-            {console.log('planet state:', this.state.cleanedPlanets)}
         </main>
       );
     }
