@@ -17,72 +17,62 @@ const Card = ({
   residents,
   selected
 }) => {
+  // const residentValues = Object.values(residents);
   //
-  // const residentValues = Object.values(residents).map(person => person.name)
-  // console.log(residentValues);
-// console.log('residents', residents);
-const residentValues = Object.values(residents);
+  // const mappedResidents = residentValues.map((resident, i) => {
+  //   return resident.name;
+  // });
 
-const mappedResidents = residentValues.map((resident, i) => {
-  return resident.name;
-});
+//console.log('MAP IN MAP:', mappedResidents);
 
-console.log('MAP IN MAP:', mappedResidents);
-
-if (selected === 'people') {
-  return (
-    <article className='card'>
-      <h4 className="person-name">NAME:{personName}</h4>
-      <h4 className="homeworld">HW:{homeworld}</h4>
-      <h4 className="population">POP:{population}</h4>
-      <h4 className="species">SPECIES:{species}</h4>
-    </article>
-  );
-} else if (selected === 'planets') {
-  return (
-    <article className='card'>
-      <h4 className="planet-name">NAME:{planetName}</h4>
-      <h4 className="homeworld">terrain:{terrain}</h4>
-      <h4 className="population">climate:{climate}</h4>
-      <h4 className="species">residents:{mappedResidents}</h4>
-    </article>
-  )
-} else if (selected === 'vehicles') {
-  return (
-    <article className='card'>
-      <h4 className="planet-name">Vehicle Name:{vehicleName}</h4>
-      <h4 className="homeworld">passengers:{passengers}</h4>
-      <h4 className="population">vehicleClass:{vehicleClass}</h4>
-      <h4 className="species">model:{model}</h4>
-    </article>
-  );
-} else {
-  return <div>LOADING IN CARD</div>;
-}
-}
-    //
-    // <article className='card'>
-    //   <h4 className="vehicleProps name">{vehicleName}</h4>
-    //   <h4 className="vehicleProps model">{model}</h4>
-    //   <h4 className="vehicleProps passengers">{passengers}</h4>
-    //   <h4 className="vehicleProps vehicleClass">{vehicleClass}</h4>
-    // </article>
+  if (selected === 'people') {
+    return (
+      <article className='card'>
+        <h4 className="person-name">NAME:{personName}</h4>
+        <h4 className="homeworld">HW:{homeworld}</h4>
+        <h4 className="population">POP:{population}</h4>
+        <h4 className="species">SPECIES:{species}</h4>
+      </article>
+    );
+  } else if (selected === 'planets') {
+    return (
+      <article className='card'>
+        <h4 className="planet-name">NAME:{planetName}</h4>
+        <h4 className="homeworld">terrain:{terrain}</h4>
+        <h4 className="population">climate:{climate}</h4>
+        {/* <h4 className="species">residents:{mappedResidents}</h4> */}
+      </article>
+    );
+  } else if (selected === 'vehicles') {
+    return (
+      <article className='card'>
+        <h4 className="planet-name">Vehicle Name:{vehicleName}</h4>
+        <h4 className="homeworld">passengers:{passengers}</h4>
+        <h4 className="population">vehicleClass:{vehicleClass}</h4>
+        <h4 className="species">model:{model}</h4>
+      </article>
+    );
+  } else {
+    return <div>LOADING IN CARD</div>;
+  }
+};
 
 
 
-// Card.propTypes = {
-//vehicleName,
-// model: PropTypes.,
-// passengers: PropTypes.,
-// vehicleClass: PropTypes.,
-// personName: PropTypes.,
-// homeworld: PropTypes.,
-// population,
-// species,
-// planetName,
-// terrain,
-// climate,
-// residents
-// };
+
+Card.propTypes = {
+  vehicleName: PropTypes.string,
+  model: PropTypes.string,
+  passengers: PropTypes.string,
+  vehicleClass: PropTypes.string,
+  personName: PropTypes.string,
+  homeworld: PropTypes.string,
+  population: PropTypes.string,
+  species: PropTypes.string,
+  planetName: PropTypes.string,
+  terrain: PropTypes.string,
+  climate: PropTypes.string,
+  residents: PropTypes.array
+};
 
 export default Card;
