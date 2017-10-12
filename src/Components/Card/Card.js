@@ -14,47 +14,40 @@ const Card = ({
   planetName,
   terrain,
   climate,
-  residents,
   selected
 }) => {
-//   const residentValues = Object.values(residents);
-//
-//   const mappedResidents = residentValues.map((resident, i) => {
-//     return resident.name;
-//   });
-// console.log(model, passengers, vehicleName, vehicleClass);
-// console.log('MAP IN MAP:', mappedResidents);
 
   if (selected === 'people') {
     return (
       <article className='card'>
-        <h4 className="person-name">NAME:{personName}</h4>
-        <h4 className="homeworld">HW:{homeworld}</h4>
-        <h4 className="population">POP:{population}</h4>
-        <h4 className="species">SPECIES:{species}</h4>
+        <h4 className="person">Character</h4>
+        <h4 className="person-name">NAME: {personName}</h4>
+        <h4 className="homeworld">HOMEWORLD {homeworld}</h4>
+        <h4 className="population">POP: {population}</h4>
+        <h4 className="species">SPECIES{species}</h4>
         <span className="card-background"></span>
       </article>
     );
   } else if (selected === 'planets') {
     return (
       <article className='card'>
-        <h4 className="planet-name">NAME:{planetName}</h4>
-        <h4 className="homeworld">terrain:{terrain}</h4>
-        <h4 className="population">climate:{climate}</h4>
+        <h4 className="planet">Planet</h4>
+        <h4 className="planet-name">NAME: {planetName}</h4>
+        <h4 className="homeworld">TERRAIN: {terrain}</h4>
+        <h4 className="population">CLIMATE: {climate}</h4>
         <span className="card-background"></span>
-        {/* {console.log({residents})} */}
-        {/* <h4 className="species">residents:{residents}</h4> */}
+
       </article>
-    )
+    );
   } else if (selected === 'vehicles') {
     return (
       <article className='card'>
-        <h4 className="planet-name">Vehicle Name:{vehicleName}</h4>
-        <h4 className="homeworld">passengers:{passengers}</h4>
-        <h4 className="population">vehicleClass:{vehicleClass}</h4>
-        <h4 className="species">model:{model}</h4>
+        <h4 className="vehicle">Vehicle</h4>
+        <h4 className="planet-name">VEHICLE: {vehicleName}</h4>
+        <h4 className="homeworld">PASSENGERS: {passengers}</h4>
+        <h4 className="population">CLASS: {vehicleClass}</h4>
+        <h4 className="species">MODEL: {model}</h4>
         <span className="card-background"></span>
-
       </article>
     );
   } else {
