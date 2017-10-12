@@ -10,7 +10,6 @@ const CardContainer = ({ vehicles, planets, people, selected }) => {
 
   const itemValues = [...vehicleValues, ...planetValues, ...peopleValues];
 
-console.log('items: ', itemValues);
   return itemValues.map(item => {
     return <Card
       key={item.url}
@@ -38,28 +37,3 @@ CardContainer.propTypes = {
 };
 
 export default CardContainer;
-
-// if (selected === 'people') {
-//   return <Card
-//     sel
-//     key={item.url}
-//     personName={item.name}
-//     homeworld={item.homeworld}
-//     population={item.population}
-//     species={item.species} />;
-// } else if (selected === 'planet') {
-//   return <Card
-//     key={item.url}
-//     planetName={item.name}
-//     terrain={item.terrain}
-//     population={item.population}
-//     climate={item.climate}
-//     residents={item.residents} />;
-// } else if (selected === 'vehicles'){
-//   return <Card
-//     key={item.url}
-//     vehicleName={item.vehicleName}
-//     vehicleClass={item.vehicleClas}
-//     model={item.model}
-//     passengers={item.passengers} />;
-// }
