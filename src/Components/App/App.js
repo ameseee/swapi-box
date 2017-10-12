@@ -22,7 +22,7 @@ class App extends Component {
       selected: ''
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickPeople = this.handleClickPeople.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -81,7 +81,8 @@ class App extends Component {
       });
   }
 
-  handleClick(event) {
+  handleClickPeople(event) {
+    console.log('clicked handle people');
     this.setState({
       selected: event.target.value
     });
@@ -92,13 +93,17 @@ class App extends Component {
       <main className="App">
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer
-         handleClick={this.handleClick}
+         handleClickPeople={this.handleClickPeople}
          selected={this.state.selected} />
         {/* <Video /> */}
 
         {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
+
+
+
+
         <CardContainer
           vehicles={this.state.cleanedVehicles}
           planets={this.state.cleanedPlanets}
@@ -109,3 +114,14 @@ class App extends Component {
 }
 
 export default App;
+
+// if (this.state.selected === 'vehicles') {
+//   <CardContainer
+//     vehicles={this.state.cleanedVehicles} />
+// } else if (this.state.selected === 'people') {
+//   <CardContainer
+//     people={this.state.cleanedPeople} />
+// } else if (this.state.selected === 'planets') {
+//   <CardContainer
+//     planets={this.state.cleanedPlanets} />
+// }

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import '../../index.css';
 
-const ButtonContainer = ({handleClick, selected}) => {
+const ButtonContainer = ({handleClickPeople, handleClick, selected}) => {
+
+  // function handleClickPeople() {
+  //   handleClickPeople();
+  // };
+
   return (
     <div className='button-container'>
       <Button
@@ -11,7 +16,7 @@ const ButtonContainer = ({handleClick, selected}) => {
         handleClick={handleClick} />
       <Button
         value={'people'}
-        handleClick={handleClick} />
+        handleClickPeople={handleClickPeople} />
       <Button
         value={'planets'}
         handleClick={handleClick} />
@@ -25,7 +30,8 @@ const ButtonContainer = ({handleClick, selected}) => {
 
 ButtonContainer.propTypes = {
   handleClick: PropTypes.func,
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  handleClickPeople: PropTypes.func
 };
 
 export default ButtonContainer;

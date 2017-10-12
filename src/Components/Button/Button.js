@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../index.css';
 
-const Button = ({value, handleClick}) => {
+const Button = ({value, handleClick, handleClickPeople}) => {
+  //  console.log('handleclick in button:', handleClickPeople);
 
   return (
     <button
       value={`${value}`}
-      onClick={handleClick} >
+      onClick={handleClickPeople} >
       {value}
     </button>
   );

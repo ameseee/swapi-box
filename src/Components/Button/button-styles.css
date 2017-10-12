@@ -1,16 +1,13 @@
-button{
+button {
   font-size: 18px;
-padding: 6px;
-width: 190px;
-border: none;
-color: #e5e5e5;
-background: #4d6d88;
+  padding: 6px;
+  width: 190px;
+  border: none;
+  color: #e5e5e5;
+  background: #4d6d88;
+  margin: 2px;
+  border-radius: 7px; }
 
-margin: 2px;
-    border-radius: 7px;
-}
-
-button:hover{
+button:hover {
   background: #6893b8;
-  cursor: pointer;
-}
+  cursor: pointer; }
