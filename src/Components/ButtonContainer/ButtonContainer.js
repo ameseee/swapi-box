@@ -7,6 +7,7 @@ const ButtonContainer = () => {
 
   return (
     <div className='button-container'>
+      <Button/>
       <Button />
       <Button />
       <Button />

@@ -1,15 +1,16 @@
-button {
+button{
+  font-size: 18px;
+padding: 6px;
+width: 190px;
 border: none;
-    border-radius: 16px;
-    font-size: 22px;
-    height: 42px;
-    width: 200px;
-    margin-top: 24px;
-    background: #ad2470;
-    color: #f1f1f1;
+color: #e5e5e5;
+background: #4d6d88;
+
+margin: 2px;
+    border-radius: 7px;
 }
 
 button:hover{
+  background: #6893b8;
   cursor: pointer;
-  background: #ca5596;
 }
