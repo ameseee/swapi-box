@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
-//import Video from '../Video/Video.js';
+import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
 import {
@@ -97,7 +97,7 @@ class App extends Component {
         !Object.keys(this.state.vehicles).length &&
         !this.state.scroll.length) {
       return (
-        <main>LOADING!!!!!!!!!!!!!!!!!!!!!!!</main>
+        <main>LOADING...</main>
       );
     }  else {
       return (
@@ -107,15 +107,18 @@ class App extends Component {
             handleClick={this.handleClick}
             selected={this.state.selected} />
           {/* <Video /> */}
-
+         <section>
+         <CardContainer
+           vehicles={this.state.cleanedVehicles}
+           planets={this.state.cleanedPlanets}
+           people={this.state.cleanedPeople}
+           selected={this.state.selected} />
+           </section>
+        <Video />
           {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
-          <CardContainer
-            vehicles={this.state.cleanedVehicles}
-            planets={this.state.cleanedPlanets}
-            people={this.state.cleanedPeople}
-            selected={this.state.selected} />
+          
         </main>
       );
     }
