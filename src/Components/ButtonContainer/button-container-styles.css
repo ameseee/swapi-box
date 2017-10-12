@@ -1,2 +1,6 @@
 .button-container {
-  border: 2px solid red; }
+    height: 90px;
+    background: #5d133c;
+    display: flex;
+    justify-content: space-evenly;
+}

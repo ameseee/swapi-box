@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
+import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
 import { cleanScroll, cleanPeople, fetchHomeWorlds, fetchSpecies, cleanPlanets, fetchResident } from '../../Helpers/CleanData';
@@ -73,11 +74,12 @@ class App extends Component {
     return (
       <main className="App">
        Amy and Francys SWAPI box
-        <ButtonContainer />
-        <CardContainer
+       <ButtonContainer />
+        <Video />
+        {/* <CardContainer
           people={this.state.people}
           planets={this.state.planets}
-          vehicles={this.state.vehicles} />
+          vehicles={this.state.vehicles} /> */}
         {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         }
