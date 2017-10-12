@@ -22,7 +22,7 @@ const Card = ({
   // const mappedResidents = residentValues.map((resident, i) => {
   //   return resident.name;
   // });
-
+//console.log(model, passengers, vehicleName, vehicleClass);
 //console.log('MAP IN MAP:', mappedResidents);
 
   if (selected === 'people') {
@@ -46,7 +46,7 @@ const Card = ({
   } else if (selected === 'vehicles') {
     return (
       <article className='card'>
-        <h4 className="planet-name">Vehicle Name:{vehicleName}</h4>
+        <h4 className="planet-name">VehicleName:{vehicleName}</h4>
         <h4 className="homeworld">passengers:{passengers}</h4>
         <h4 className="population">vehicleClass:{vehicleClass}</h4>
         <h4 className="species">model:{model}</h4>
@@ -56,9 +56,6 @@ const Card = ({
     return <div>LOADING IN CARD</div>;
   }
 };
-
-
-
 
 Card.propTypes = {
   vehicleName: PropTypes.string,
@@ -72,7 +69,8 @@ Card.propTypes = {
   planetName: PropTypes.string,
   terrain: PropTypes.string,
   climate: PropTypes.string,
-  residents: PropTypes.array
+  residents: PropTypes.array,
+  selected: PropTypes.string
 };
 
 export default Card;

@@ -8,11 +8,9 @@ const CardContainer = ({ vehicles, planets, people, selected }) => {
   const vehicleValues = Object.values(vehicles);
   const peopleValues = Object.values(people);
 
-  const itemValues = [
-    ...planetValues,
-    ...vehicleValues,
-    ...peopleValues
-  ];
+  const itemValues = [...vehicleValues, ...planetValues, ...peopleValues];
+
+console.log('items: ', itemValues);
   return itemValues.map(item => {
     return <Card
       key={item.url}
@@ -26,13 +24,12 @@ const CardContainer = ({ vehicles, planets, people, selected }) => {
       climate={item.climate}
       residents={item.residents}
       vehicleName={item.vehicleName}
-      vehicleClass={item.vehicleClas}
+      vehicleClass={item.vehicleClass}
       model={item.model}
       passengers={item.passengers} />;
   });
 
 };
-
 
 CardContainer.propTypes = {
   people: PropTypes.object,
