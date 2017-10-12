@@ -23,27 +23,27 @@ export const cleanSpecies = (species, people) => {
   const peopleValues = Object.values(people);
 
   return peopleValues.reduce((acc, person) => {
-    const findSpeciesMath = speciesValues.filter(type => {
+    const findSpeciesMatch = speciesValues.filter(type => {
       if (type.url === person.species[0]) {
         acc[type.url] = type.name;
-        return;
       }
+      return findSpeciesMatch;
     });
 
     return acc;
   }, {});
 };
 
-const cleanPeople = (people, planets, species) => {
+const cleanPeople = (people, planets) => {
   const peopleValues = Object.values(people);
   const planetValues = Object.values(planets);
-  const speciesUrls = Object.keys(cleanSpecies(species, people));
-
-//iterate over speciesUrls and find the one that matches person.species[0]
 
   return peopleValues.reduce((acc, person) => {
     const findUrlMatch = planetValues.find(planet => {
-      if (planet.url === person.homeworld) return planet.name;
+      if (planet.url === person.homeworld) {
+        return planet.name;
+      }
+      return findUrlMatch;
     });
 
     acc[person.url] = {
@@ -59,7 +59,7 @@ const cleanPeople = (people, planets, species) => {
 
 const cleanVehicles = (vehicleResults) => {
   const vehicleValues = Object.values(vehicleResults);
-//REFACTOR: could combine logic of this reduce and put it
+
   return vehicleValues.reduce((acc, vehicle) => {
     acc[vehicle.url] = {
       name: vehicle.name,
@@ -70,7 +70,6 @@ const cleanVehicles = (vehicleResults) => {
     return acc;
   }, {});
 };
-
 
 const cleanPlanets = (planets, people) => {
   const planetValues = Object.values(planets);

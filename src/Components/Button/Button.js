@@ -11,7 +11,7 @@ const Button = ({value, handleClick}) => {
       {value}
     </button>
   );
-
+  
 };
 
 Button.propTypes = {

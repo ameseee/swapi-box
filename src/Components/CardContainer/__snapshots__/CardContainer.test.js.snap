@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardContainer /> should match the Card snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CardContainer
+    people={
+        Object {
+            "1": "Luke",
+            "2": "Leia",
+          }
+    }
+    planets={
+        Object {
+            "1": "pluto",
+            "2": "earth",
+          }
+    }
+    selected="people"
+    vehicles={
+        Object {
+            "1": "car",
+            "2": "truck",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Array [
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+    <Card
+      climate={undefined}
+      homeworld={undefined}
+      model={undefined}
+      passengers={undefined}
+      personName={undefined}
+      planetName={undefined}
+      population={undefined}
+      residents={undefined}
+      selected="people"
+      species={undefined}
+      terrain={undefined}
+      vehicleClass={undefined}
+      vehicleName={undefined}
+/>,
+  ],
+  Symbol(enzyme.__nodes__): Array [
+    Array [
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+      <Card
+        climate={undefined}
+        homeworld={undefined}
+        model={undefined}
+        passengers={undefined}
+        personName={undefined}
+        planetName={undefined}
+        population={undefined}
+        residents={undefined}
+        selected="people"
+        species={undefined}
+        terrain={undefined}
+        vehicleClass={undefined}
+        vehicleName={undefined}
+/>,
+    ],
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

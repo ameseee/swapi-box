@@ -2,26 +2,15 @@ import React from 'react';
 import Button from './Button';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-// import config from '../../config';
+import config from '../../setupTests.js';
 
-describe(`Button`, () => {
-  let wrapper, button, buttonText;
-  const mockFunction = jest.fn();
+describe('<Button />', () => {
+  const mkFun = jest.fn();
+  let wrapper = shallow(<Button />);
 
-  beforeEach( () => {
-    wrapper = shallow(
-      <Button
-        buttonText='Button Text'
-        buttonClass='button-class'
-        buttonCallback={mockFunction} />
-    );
-    button = wrapper.find('button');
-    buttonText = button.text();
+  it('should match the Card snapshot', () => {
+
+    expect(wrapper).toMatchSnapshot();
   });
-
-  it('Can be created', () => {
-    expect(wrapper.exists()).toEqual(true);
-  });
-
 
 });

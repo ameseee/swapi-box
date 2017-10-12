@@ -6,33 +6,68 @@ import MockVehicleData from "./MockVehicleData";
 import MockPeopleData from "./MockPeopleData";
 import MockPlanetData from "./MockPlanetData";
 
-// describe("App", () => {
-  // const stateStub = {
-  //   scroll: [],
-  //   people: {},
-  //   planets: {},
-  //   vehicles: {},
-  //   cleanedPlanets: {},
-  //   cleanedVehicles: {},
-  //   selected: ''
-  // };
-  // beforeEach(() => {
-  //   wrapper = shallow(<App />);
+describe("App", () => {
+  const stateStub = {
+    scroll: [],
+    people: {},
+    planets: {},
+    vehicles: {},
+    cleanedPlanets: {},
+    cleanedVehicles: {},
+    selected: ''
+  };
+
+  // beforeEach( () => {
+  //   let wrapper = mount(<App />);
   // });
 
-  // const mockVehicleData = MockVehicleData;
+//   afterEach(() => {
+//     expect(fetchMock.calls().unmatched).toEqual([]);
+//     fetchMock.restore();
+// });
+
+  const pause = () => {
+    return new Promise(res => {
+      setTimeout(() => {
+        res();
+      });
+    });
+  };
+
+  const mockVehicleData = MockVehicleData;
   // const mockPeopleData = MockPeopleData;
   // const mockPlanetData = MockPlanetData;
+
+  // it("should exist", async () => {
+  //   fetchMock.get(mockVehicleData, {
+  //     status: 200,
+  //     body: stateStub
+  //   });
   //
-  // it("should exist", () => {
+  //   const wrapper = shallow(<App />);
   //
-  //   const wrapper = mount(<App />);
+  //   await pause;
   //
   //   expect(wrapper).toBeDefined();
   // });
 
-  // it.skip("should render a div", () => {
-  //   expect(wrapper.find("div").length).toEqual(1);
+  // it("should set state when a button is clicked", async () => {
+  //   fetchMock.get(mockVehicleData, {
+  //     status: 200,
+  //     body: stateStub
+  //   });
+  //
+  //   let wrapper = mount(<App />);
+  //   await pause();
+  //
+  //   const header = wrapper.find('h1');
+  //
+  //   expect(wrapper.state().scroll).toEqual([]);
+  //   expect(header.length).toEqual(1);
+  // });
+
+  // it("should render a div", () => {
+  //   expect(wrapper.find("main").length).toEqual(1);
   // });
   //
   // it.skip("should render a Background component", () => {
@@ -132,4 +167,4 @@ import MockPlanetData from "./MockPlanetData";
   //     expect(wrapper.state().planetData).toEqual(mockPlanetData);
   //   }
   // );
-// });
+});
