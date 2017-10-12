@@ -11,6 +11,14 @@ body {
   overflow: hidden;
 }
 
+.scroll {
+  width: 50%;
+  overflow: hidden;
+  float: right;
+  margin-top: -832px;
+  display: inline-block;
+}
+
 .fade {
   display: flex;
   justify-content: space-between;

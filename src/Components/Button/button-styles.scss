@@ -1,12 +1,11 @@
 button{
   font-size: 15px;
-padding: 6px;
-width: 130px;
-border: none;
-color: #e5e5e5;
-background: #4d6d88;
-
-margin: 2px;
+  padding: 6px;
+  width: 130px;
+  border: none;
+  color: #e5e5e5;
+  background: #4d6d88;
+  margin: 3.5px;
     // border-radius: 7px;
 }
 
@@ -14,3 +13,8 @@ button:hover{
   background: #6893b8;
   cursor: pointer;
 }
+
+// button {
+//   background-color: green;
+//   outline: none!important;
+// }

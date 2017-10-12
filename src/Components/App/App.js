@@ -108,18 +108,22 @@ class App extends Component {
        <ButtonContainer
          handleClick={this.handleClick}
          selected={this.state.selected} />
-         <section>
+        <section>
+         <article className='cards'>
          <CardContainer
            vehicles={this.state.cleanedVehicles}
            planets={this.state.cleanedPlanets}
            people={this.state.cleanedPeople}
            selected={this.state.selected} />
-           </section>
-        <Video />
+         </article>
+         <article className='video-container'>
+           <Video />
+         </article>
+       </section>
 
-        {/* {
+        {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
-        } */}
+        }
             {console.log('planet state:', this.state.cleanedPlanets)}
         </main>
       );
