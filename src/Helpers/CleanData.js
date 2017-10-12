@@ -12,7 +12,7 @@ export const cleanScroll = scrollData => {
 
 export const cleanAllRecords = ({people, planets, vehicles}) => {
   const cleanedVehicleResults = cleanVehicles(vehicles);
-  //const cleanedPeopleResults = cleanPeople(people, planets);
+  const cleanedPeopleResults = cleanPeople(people, planets);
   const cleanedPlanetsResults = cleanPlanets(planets, people);
 
   return [cleanedVehicleResults, cleanedPlanetsResults];
@@ -31,6 +31,7 @@ export const cleanPlanets = (planets, people) => {
         return people[residentUrl];
       })
     };
+    // console.log('residents', acc[planet.url].residents);
     return acc;
   }, {});
 };
@@ -39,9 +40,15 @@ export const cleanPeople = (people, planets) => {
   const peopleValues = Object.values(people);
 
   return peopleValues.reduce((acc, person) => {
-    acc[person.url] = {
-      
-    }
+//     if () {
+//       if planet url matches persome homeworld url, then s
+//     }
+//     acc[person.url] = {
+//       name: person.name,
+//       homeworld: person.homeworld
+// //person.homeworld === planets.name
+//     }
+return acc;
   })
 }
 
