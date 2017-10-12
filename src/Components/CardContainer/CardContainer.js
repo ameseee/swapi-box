@@ -3,40 +3,25 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import '../../index.css';
 
-const CardContainer = ({ people = {}, planets, vehicles }) => {
+const CardContainer = ({ people, planets, vehicles }) => {
+//console.log('people in CC: ', people);
+  console.log('vehicles: ', vehicles);
 
-  const peopleKeys = Object.keys(people)
-  return peopleKeys.map((person, index) => {
-    console.log('person: ', people[person].name);
-    return ( <Card
-      name={people[person].name}
-      key={index}/>
+  return <Card vehicles={vehicles} />
 
-    )
-  })
+  // const peopleKeys = Object.keys(people)
 
-  // return (
-  //   <div className='card-container'>
-  //     Card Container
-  //     <Card
-  //       people={mappedPeopleKeys}/>
-  //   </div>
-  // );
+  // return peopleKeys.map((person) => {
+  //   console.log('SPECIES INSIDE MAP: ', people[person].species);
+  //   return ( <Card
+  //     name={people[person].name}
+  //     key={people[person].name}
+  //     species={people[person].species}/>
+  //   )
+  //
+  // })
 
 };
-
-
-// {Object.keys(data).map((key, index) => {
-//            return (
-//              <Card key={index}
-//                    id={index}
-//                    data={data[key]}
-//                    keyName={key}
-//                    faveClick={faveClick}
-//                    favoritesData={favorites} />
-//            )
-//          })
-//        }
 
 
 // CardContainer.propTypes = {

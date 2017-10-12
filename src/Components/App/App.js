@@ -5,7 +5,7 @@ import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
 import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
-import { cleanScroll, cleanPeople, fetchHomeWorlds, fetchSpecies, cleanPlanets, fetchResident } from '../../Helpers/CleanData';
+import { cleanScroll, cleanPeople, fetchHomeWorlds, fetchSpecies, cleanPlanets, cleanVehicles, fetchResident, indexRecords } from '../../Helpers/CleanData';
 
 class App extends Component {
   constructor() {
@@ -13,46 +13,50 @@ class App extends Component {
     this.state = {
       scroll: [],
       people: {},
-      planets: {}
-      // planets:
+      planets: {},
+      vehicles: {},
+      cleanedPeople: {},
+      cleanedPlanets: {},
+      cleanedVehicles: {}
     };
+    this.fetchUntilAll = this.fetchUntilAll.bind(this);
   }
 
-  fetchSwapi() {
+  fetchUntilAll(url, recordType, records = []) {
+    if (url === null) {
+      this.setState({
+        [recordType]: indexRecords(records)
+      });
+    }
+
+    fetch(url)
+      .then(response => response.json())
+      .then(dataResponse => {
+        const newRecords = records.concat(dataResponse.results);
+        return this.fetchUntilAll(dataResponse.next, recordType, newRecords);
+      });
+};
+  async fetchSwapi() {
     const fetchIntro = fetch('https://swapi.co/api/films/')
       .then(result => result.json())
-      .then(scrollData =>  cleanScroll(scrollData))
+      .then(scroll =>  cleanScroll(scroll))
       .catch(error => console.log(error));
 
-
-    const fetchPeople = fetch('https://swapi.co/api/people/')
-      .then(result => result.json())
-      .then(peopleData => cleanPeople(peopleData))
-      .catch(error => console.log(error));
-
+    const fetchPeople = await this.fetchUntilAll('https://swapi.co/api/people/', 'people')
 
     const fetchPlanets = fetch('https://swapi.co/api/planets/')
       .then(result => result.json())
-      .then(planets => cleanPlanets(planets))
+      .then(planets => indexRecords(planets.results))
       .catch(error => console.log(error));
 
-    return Promise.all([fetchIntro, fetchPeople, fetchPlanets])
+    const fetchVehicles = fetch('https://swapi.co/api/vehicles/')
+      .then(result => result.json())
+      .then(vehicles => indexRecords(vehicles.results))
+      .catch(error => console.log(error));
+
+    return Promise.all([fetchIntro, fetchPeople, fetchPlanets, fetchVehicles])
       .catch(() => console.log('Promise.all error'))
-
   }
-
-
-//   this.fetchPromise()
-//     .then((promises) => {
-//       this.setState({
-//         movieCrawls: promises[0],
-//         people: promises[1],
-//         planets: promises[2],
-//         vehicles: promises[3]
-//       })
-//     })
-//   console.log('state set and app mounted!');
-// }
 
   componentDidMount() {
     this.fetchSwapi()
@@ -60,20 +64,23 @@ class App extends Component {
         this.setState({
           scroll: resolvedPromise[0],
           people: resolvedPromise[1],
-          planets: resolvedPromise[2]
+          planets: resolvedPromise[2],
+          vehicles: resolvedPromise[3]
+        }, () => {
+          const cleanedPlanets = cleanPlanets(Object.values(this.state.planets));
+          //maybe setState with this
         });
       });
-    console.log('state set and app mounted!');
-
   }
 
   render() {
-    console.log(this.state.people);
     const peopleArray = [this.state.people]
 
     return (
       <main className="App">
        Amy and Francys SWAPI box
+        <ButtonContainer />
+        {/* this.state.people && <CardContainer
        <ButtonContainer />
         <Video />
         {/* <CardContainer

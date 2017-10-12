@@ -9,29 +9,24 @@ export const cleanScroll = (scrollData) => {
   });
 };
 
-export const cleanPeople= (peopleData) => {
-  const peopleResults = peopleData.results;
+export const cleanVehicles = (vehicle) => {
+  const vehicleResults = vehicle.results;
 
-  return peopleResults.reduce((acc, person) => {
-    acc[person.url] = {
-      name: person.name,
-      species: person.species
-    };
+  return vehicleResults.map(vehicle => {
+    const name = vehicle.name;
+    const model = vehicle.model;
+    const passengers = vehicle.passengers;
+    const vehicleClass = vehicle.vehicle_class;
+    return [name, model, passengers, vehicleClass];
+  });
+};
 
-    fetchHomeWorlds(person)
-      .then(homeworld => {
-        acc[person.url].homeworld = homeworld;
-      });
-
-    fetchSpecies(person)
-      .then(species => {
-        acc[person.url].species = species;
-      });
-
+export const indexRecords = records => {
+  return records.reduce((acc, person) => {
+    acc[person.url] = person;
     return acc;
   }, {});
 };
-
 
 export const fetchHomeWorlds = (person) => {
   return fetch(person.homeworld)
@@ -48,32 +43,29 @@ export const fetchHomeWorlds = (person) => {
 export const fetchSpecies = (person) => {
   return fetch(person.species)
     .then(response => response.json())
-    .then(species => species)
+    .then(species => species.name)
     .catch(error => console.log(error));
 };
 
-export const cleanPlanets = (planets) => {
-  const planetResults = planets.results;
-  //console.log(planetResults);
-  planetResults.reduce((acc, planet) => {
-    //console.log(planet);
-    acc = {
+export const cleanPlanets = planets => {
+  return planets.reduce((acc, planet) => {
+    acc[planet.url] = {
       name: planet.name,
       terrain: planet.terrain,
       climate: planet.climate,
       population: planet.population
     };
-
-    // fetchResident(planet.residents)
-    //   .then(response => response.json())
-    //   .then(resident => {
-    //     acc.residents = resident
-    //   });
-
     return acc;
   }, {});
-
 };
+
+
+
+
+
+
+
+
 
 export const fetchResident = (residents) => {
 
