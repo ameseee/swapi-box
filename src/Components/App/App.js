@@ -92,11 +92,8 @@ class App extends Component {
   }
 
   render() {
-    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected } = this.state
-    if (!Object.keys(this.state.people).length &&
-        !Object.keys(this.state.planets).length &&
-        !Object.keys(this.state.vehicles).length &&
-        !this.state.scroll.length) {
+    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected } = this.state;
+    if (!Object.keys({...this.state}).length) {
       return (
         <main>LOADING...</main>
       );
