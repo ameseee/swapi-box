@@ -17,14 +17,17 @@ const Card = ({
   residents,
   selected
 }) => {
+  //
+  // const residentValues = Object.values(residents).map(person => person.name)
+  // console.log(residentValues);
 // console.log('residents', residents);
-const residentValues = Object.values({residents})
-//console.log(residentValues);
+const residentValues = Object.values(residents);
 
-const mappedResidents = residentValues.reduce((acc, resident, i) => {
-  acc[resident[i]] = resident[i].name;
-  return acc;
-}, [])
+const mappedResidents = residentValues.map((resident, i) => {
+  return resident.name;
+});
+
+console.log('MAP IN MAP:', mappedResidents);
 
 if (selected === 'people') {
   return (
@@ -41,8 +44,7 @@ if (selected === 'people') {
       <h4 className="planet-name">NAME:{planetName}</h4>
       <h4 className="homeworld">terrain:{terrain}</h4>
       <h4 className="population">climate:{climate}</h4>
-      {console.log({residents})}
-      {/* <h4 className="species">residents:{residents}</h4> */}
+      <h4 className="species">residents:{mappedResidents}</h4>
     </article>
   )
 } else if (selected === 'vehicles') {
