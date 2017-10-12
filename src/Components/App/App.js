@@ -117,14 +117,11 @@ class App extends Component {
          </article>
          <article className='video-container'>
            <Video />
+           {
+             this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
+           }
          </article>
        </section>
-
-        {
-          this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
-        }
-         
-
         </main>
       );
     }
