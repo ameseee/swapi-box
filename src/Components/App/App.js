@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../../index.css';
 import CardContainer from '../CardContainer/CardContainer.js';
 import ButtonContainer from '../ButtonContainer/ButtonContainer.js';
-import Video from '../Video/Video.js';
+//import Video from '../Video/Video.js';
 import Scroll from '../Scroll/Scroll.js';
 import './App.css';
-import { cleanScroll, cleanPeople, fetchSpecies, cleanPlanets, indexRecords, cleanAllRecords } from '../../Helpers/CleanData';
+import { cleanScroll, indexRecords, cleanAllRecords } from '../../Helpers/CleanData';
 
 class App extends Component {
   constructor() {
@@ -89,8 +89,18 @@ class App extends Component {
   }
 
   render() {
-    return (
+    if (!Object.keys(this.state.people).length ||
+        !Object.keys(this.state.planets).length ||
+        !Object.keys(this.state.vehicles).length ||
+        !this.state.scroll.length) {
+          {console.log('we are inside IF')}
+      return (
+        <div>LOADING!!!!!!!!!!!!!!!!!!!!!!!</div>
+      );
+    }  else {
+      return (
       <main className="App">
+        {console.log('we are inside ELSE')}
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer
          handleClickPeople={this.handleClickPeople}
@@ -101,16 +111,15 @@ class App extends Component {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
 
-
-
-
         <CardContainer
           vehicles={this.state.cleanedVehicles}
           planets={this.state.cleanedPlanets}
-          people={this.state.cleanedPeople}/>
+          people={this.state.cleanedPeople}
+          selected={this.state.selected}/>
       </main>
     );
   }
+}
 }
 
 export default App;
