@@ -9,10 +9,9 @@ body {
   overflow: hidden; }
 
 .scroll {
-  width: 50%;
+  height: 100vh;
   overflow: hidden;
   float: right;
-  margin-top: -832px;
   display: inline-block; }
 
 .fade {
@@ -36,8 +35,8 @@ body {
   display: flex;
   justify-content: center;
   height: 800px;
-  color: #feda4a;
-  font-size: 350%;
+  color: #c3e1ec;
+  font-size: 33px;
   letter-spacing: 6px;
   line-height: 150%;
   text-align: justify;
