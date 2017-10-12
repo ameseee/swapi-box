@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../../index.css';
 
 const Card = ({ name, model, passengers, vehicleClass }) => {
-console.log('name on card: ', name);
+//console.log('name on card: ', name);
   return (
     <article className='card'>
       <h4 className="vehicleProps name">{name}</h4>
