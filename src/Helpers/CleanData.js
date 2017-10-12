@@ -9,14 +9,32 @@ export const cleanScroll = scrollData => {
   });
 };
 
-
 export const cleanAllRecords = ({people, planets, vehicles}) => {
   const cleanedVehicleResults = cleanVehicles(vehicles);
   const cleanedPeopleResults = cleanPeople(people, planets);
   const cleanedPlanetsResults = cleanPlanets(planets, people);
 
-  return [cleanedVehicleResults, cleanedPlanetsResults];
+  return {
+    vehicles: cleanedVehicleResults,
+    people: cleanedPeopleResults,
+    planets: cleanedPlanetsResults
+  }
 };
+
+const cleanVehicles = (vehicleResults) => {
+  const vehicleValues = Object.values(vehicleResults);
+//REFACTOR: could combine logic of this reduce and put it
+  return vehicleValues.reduce((acc, vehicle) => {
+    acc[vehicle.url] = {
+      name: vehicle.name,
+      model: vehicle.model,
+      vehicleClass: vehicle.vehicle_class,
+      passengers: vehicle.passengers
+    };
+    return acc;
+  }, {});
+};
+
 
 export const cleanPlanets = (planets, people) => {
   const planetValues = Object.values(planets);
@@ -77,28 +95,6 @@ export const fetchSpecies = (person) => {
     .then(species => species.name)
     .catch(error => console.log(error));
 };
-
-
-
-const cleanVehicles = (vehicleResults) => {
-  const vehicleValues = Object.values(vehicleResults);
-//REFACTOR: could combine logic of this reduce and put it
-  return vehicleValues.reduce((acc, vehicle) => {
-    acc[vehicle.url] = {
-      name: vehicle.name,
-      model: vehicle.model,
-      vehicleClass: vehicle.vehicle_class,
-      passengers: vehicle.passengers
-    };
-    return acc;
-  }, {});
-};
-
-
-
-
-
-
 
 
 export const fetchResident = (residents) => {
