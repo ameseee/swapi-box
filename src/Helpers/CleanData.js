@@ -18,7 +18,7 @@ export const cleanAllRecords = ({people, planets, vehicles}) => {
     vehicles: cleanedVehicleResults,
     people: cleanedPeopleResults,
     planets: cleanedPlanetsResults
-  }
+  };
 };
 
 const cleanVehicles = (vehicleResults) => {

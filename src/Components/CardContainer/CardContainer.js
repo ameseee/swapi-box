@@ -17,7 +17,7 @@ const CardContainer = ({ vehicles, planets }) => {
 //       residents={planet.residents} />
 // });
 
-return vehicleValues.map(vehicle => {
+  return vehicleValues.map(vehicle => {
     return <Card
       key={vehicle.url}
       name={vehicle.name}

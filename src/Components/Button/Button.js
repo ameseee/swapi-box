@@ -6,7 +6,7 @@ const Button = ({value, handleClick}) => {
 
   return (
     <button
-      className='button'
+      value={`${value}`}
       onClick={handleClick} >
       {value}
     </button>
@@ -14,8 +14,9 @@ const Button = ({value, handleClick}) => {
 
 };
 
-// Button.propTypes = {
-//
-// };
+Button.propTypes = {
+  value: PropTypes.string,
+  handleClick: PropTypes.func
+};
 
 export default Button;

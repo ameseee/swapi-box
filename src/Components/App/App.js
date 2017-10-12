@@ -16,7 +16,8 @@ class App extends Component {
       planets: {},
       vehicles: {},
       cleanedPlanets: {},
-      cleanedVehicles: {}
+      cleanedVehicles: {},
+      selected: ''
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -76,15 +77,19 @@ class App extends Component {
       });
   }
 
-  handleClick() {
-    console.log('click has been handled');
-  };
+  handleClick(event) {
+    this.setState({
+      selected: event.target.value
+    });
+  }
 
   render() {
     return (
       <main className="App">
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
-       <ButtonContainer handleClick={this.handleClick}/>
+       <ButtonContainer
+         handleClick={this.handleClick}
+         selected={this.state.selected} />
         {/* <Video /> */}
 
         {/* {
