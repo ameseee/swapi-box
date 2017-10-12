@@ -36,7 +36,7 @@ class App extends Component {
           this.setState({
             cleanedPlanets: cleanAllRecords(this.state).planets,
             cleanedVehicles: cleanAllRecords(this.state).vehicles,
-            cleanedPeople: cleanAllRecords(this.state).people,
+            cleanedPeople: (cleanAllRecords(this.state).people),
             cleanedSpecies: cleanAllRecords(this.state).species
           });
         }
@@ -82,16 +82,15 @@ class App extends Component {
   }
 
   handleClickPeople(event) {
-    console.log('clicked handle people');
     this.setState({
       selected: event.target.value
     });
   }
 
   render() {
-    if (!Object.keys(this.state.people).length ||
-        !Object.keys(this.state.planets).length ||
-        !Object.keys(this.state.vehicles).length ||
+    if (!Object.keys(this.state.people).length &&
+        !Object.keys(this.state.planets).length &&
+        !Object.keys(this.state.vehicles).length &&
         !this.state.scroll.length) {
           {console.log('we are inside IF')}
       return (
@@ -110,16 +109,15 @@ class App extends Component {
         {/* {
           this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
         } */}
-
-        <CardContainer
-          vehicles={this.state.cleanedVehicles}
-          planets={this.state.cleanedPlanets}
-          people={this.state.cleanedPeople}
-          selected={this.state.selected}/>
-      </main>
-    );
+          <CardContainer
+            vehicles={this.state.cleanedVehicles}
+            planets={this.state.cleanedPlanets}
+            people={this.state.cleanedPeople}
+            selected={this.state.selected} />
+        </main>
+      );
+    }
   }
-}
 }
 
 export default App;
