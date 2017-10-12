@@ -18,13 +18,13 @@ const Card = ({
   selected
 }) => {
 // console.log('residents', residents);
-const residentValues = Object.values({residents})
+// const residentValues = Object.values({residents})
 //console.log(residentValues);
 
-const mappedResidents = residentValues.reduce((acc, resident, i) => {
-  acc[resident[i]] = resident[i].name;
-  return acc;
-}, [])
+// const mappedResidents = residentValues.reduce((acc, resident, i) => {
+//   acc[resident[i]] = resident[i].name;
+//   return acc;
+// }, [])
 
 if (selected === 'people') {
   return (
@@ -33,6 +33,7 @@ if (selected === 'people') {
       <h4 className="homeworld">HW:{homeworld}</h4>
       <h4 className="population">POP:{population}</h4>
       <h4 className="species">SPECIES:{species}</h4>
+      <span className="card-background"></span>
     </article>
   );
 } else if (selected === 'planets') {
@@ -41,7 +42,8 @@ if (selected === 'people') {
       <h4 className="planet-name">NAME:{planetName}</h4>
       <h4 className="homeworld">terrain:{terrain}</h4>
       <h4 className="population">climate:{climate}</h4>
-      {console.log({residents})}
+      <span className="card-background"></span>
+      {/* {console.log({residents})} */}
       {/* <h4 className="species">residents:{residents}</h4> */}
     </article>
   )
@@ -52,6 +54,8 @@ if (selected === 'people') {
       <h4 className="homeworld">passengers:{passengers}</h4>
       <h4 className="population">vehicleClass:{vehicleClass}</h4>
       <h4 className="species">model:{model}</h4>
+      <span className="card-background"></span>
+
     </article>
   );
 } else {
@@ -64,6 +68,7 @@ if (selected === 'people') {
     //   <h4 className="vehicleProps model">{model}</h4>
     //   <h4 className="vehicleProps passengers">{passengers}</h4>
     //   <h4 className="vehicleProps vehicleClass">{vehicleClass}</h4>
+    //   <span className="card-backfground"></span>
     // </article>
 
 
