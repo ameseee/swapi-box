@@ -1,4 +1,4 @@
-export const cleanScroll = (scrollData) => {
+export const cleanScroll = scrollData => {
   const scrollResults = scrollData.results;
 
   return scrollResults.map(film => {
@@ -9,17 +9,41 @@ export const cleanScroll = (scrollData) => {
   });
 };
 
-export const cleanVehicles = (vehicle) => {
-  const vehicleResults = vehicle.results;
 
-  return vehicleResults.map(vehicle => {
-    const name = vehicle.name;
-    const model = vehicle.model;
-    const passengers = vehicle.passengers;
-    const vehicleClass = vehicle.vehicle_class;
-    return [name, model, passengers, vehicleClass];
-  });
+export const cleanAllRecords = ({people, planets, vehicles}) => {
+  const cleanedVehicleResults = cleanVehicles(vehicles);
+  //const cleanedPeopleResults = cleanPeople(people, planets);
+  const cleanedPlanetsResults = cleanPlanets(planets, people);
+
+  return [cleanedVehicleResults, cleanedPlanetsResults];
 };
+
+export const cleanPlanets = (planets, people) => {
+  const planetValues = Object.values(planets);
+
+  return planetValues.reduce((acc, planet) => {
+    acc[planet.url] = {
+      name: planet.name,
+      terrain: planet.terrain,
+      climate: planet.climate,
+      population: planet.population,
+      residents: planet.residents.map(residentUrl => {
+        return people[residentUrl];
+      })
+    };
+    return acc;
+  }, {});
+};
+
+export const cleanPeople = (people, planets) => {
+  const peopleValues = Object.values(people);
+
+  return peopleValues.reduce((acc, person) => {
+    acc[person.url] = {
+      
+    }
+  })
+}
 
 export const indexRecords = records => {
   return records.reduce((acc, person) => {
@@ -47,18 +71,21 @@ export const fetchSpecies = (person) => {
     .catch(error => console.log(error));
 };
 
-export const cleanPlanets = planets => {
-  return planets.reduce((acc, planet) => {
-    acc[planet.url] = {
-      name: planet.name,
-      terrain: planet.terrain,
-      climate: planet.climate,
-      population: planet.population
+
+
+const cleanVehicles = (vehicleResults) => {
+  const vehicleValues = Object.values(vehicleResults);
+//REFACTOR: could combine logic of this reduce and put it
+  return vehicleValues.reduce((acc, vehicle) => {
+    acc[vehicle.url] = {
+      name: vehicle.name,
+      model: vehicle.model,
+      vehicleClass: vehicle.vehicle_class,
+      passengers: vehicle.passengers
     };
     return acc;
   }, {});
 };
-
 
 
 
