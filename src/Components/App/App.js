@@ -22,7 +22,10 @@ class App extends Component {
       selected: ''
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
-    this.handleClickPeople = this.handleClickPeople.bind(this);
+    // this.handleClickPeople = this.handleClickPeople.bind(this);
+    // this.handleClickPlanets = this.handleClickPlanets.bind(this);
+    // this.handleClickVehicles = this.handleClickVehicles.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -81,11 +84,23 @@ class App extends Component {
       });
   }
 
-  handleClickPeople(event) {
+  handleClick(event) {
     this.setState({
       selected: event.target.value
     });
   }
+
+  // handleClickPlanets(event) {
+  //   this.setState({
+  //     selected: event.target.value
+  //   });
+  // }
+  //
+  // handleClickVehicles(event) {
+  //   this.setState({
+  //     selected: event.target.value
+  //   });
+  // }
 
   render() {
     if (!Object.keys(this.state.people).length &&
@@ -102,7 +117,7 @@ class App extends Component {
         {console.log('we are inside ELSE')}
        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
        <ButtonContainer
-         handleClickPeople={this.handleClickPeople}
+         handleClick={this.handleClick}
          selected={this.state.selected} />
         {/* <Video /> */}
 

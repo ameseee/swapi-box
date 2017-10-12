@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import '../../index.css';
 
-const ButtonContainer = ({handleClickPeople, handleClick, selected}) => {
-
-  // function handleClickPeople() {
-  //   handleClickPeople();
-  // };
+const ButtonContainer = ({handleClick, selected}) => {
 
   return (
     <div className='button-container'>
@@ -16,13 +12,12 @@ const ButtonContainer = ({handleClickPeople, handleClick, selected}) => {
         handleClick={handleClick} />
       <Button
         value={'people'}
-        handleClickPeople={handleClickPeople} />
+        handleClick={handleClick} />
       <Button
         value={'planets'}
         handleClick={handleClick} />
       <Button
-        value={'faves'}
-        handleClick={handleClick} />
+        value={'faves'} />
     </div>
   );
 
@@ -31,7 +26,7 @@ const ButtonContainer = ({handleClickPeople, handleClick, selected}) => {
 ButtonContainer.propTypes = {
   handleClick: PropTypes.func,
   selected: PropTypes.string,
-  handleClickPeople: PropTypes.func
+  
 };
 
 export default ButtonContainer;
