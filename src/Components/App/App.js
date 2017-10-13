@@ -34,9 +34,7 @@ class App extends Component {
       this.setState({
         [recordType]: indexRecords(records)
       }, () => {
-        if (Object.keys(this.state.people).length &&
-            Object.keys(this.state.planets).length &&
-            Object.keys(this.state.vehicles).length) {
+        if (Object.keys({...this.state}).length) {
           this.setState({
             cleanedPlanets: cleanAllRecords(this.state).planets,
             cleanedVehicles: cleanAllRecords(this.state).vehicles,
@@ -92,10 +90,8 @@ class App extends Component {
   }
 
   render() {
-    if (!Object.keys(this.state.people).length &&
-        !Object.keys(this.state.planets).length &&
-        !Object.keys(this.state.vehicles).length &&
-        !this.state.scroll.length) {
+    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll } = this.state;
+    if (!Object.keys({...this.state}).length) {
       return (
         <main>LOADING...</main>
       );
@@ -109,15 +105,16 @@ class App extends Component {
           <section>
             <article className='cards'>
               <CardContainer
-                vehicles={this.state.cleanedVehicles}
-                planets={this.state.cleanedPlanets}
-                people={this.state.cleanedPeople}
-                selected={this.state.selected} />
+                vehicles={cleanedVehicles}
+                planets={cleanedPlanets}
+                people={cleanedPeople}
+                selected={selected}
+              />
             </article>
             <article className='video-container'>
               <Video />
               {
-                this.state.scroll.length && <Scroll scrollData={this.state.scroll} />
+                scroll.length && <Scroll scrollData={scroll} />
               }
             </article>
           </section>
