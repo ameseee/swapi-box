@@ -14,12 +14,14 @@ const Card = ({
   planetName,
   terrain,
   climate,
-  selected
+  selected,
+  toggleFavorited
 }) => {
 
   if (selected === 'people') {
     return (
       <article className='card'>
+        <div className='unfavorited' onClick={toggleFavorited}>fave</div>
         <h4 className="person">Character</h4>
         <h4 className="person-name">NAME: {personName}</h4>
         <h4 className="homeworld">HOMEWORLD {homeworld}</h4>
@@ -68,7 +70,8 @@ Card.propTypes = {
   terrain: PropTypes.string,
   climate: PropTypes.string,
   residents: PropTypes.array,
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  toggleFavorited: PropTypes.func
 };
 
 export default Card;

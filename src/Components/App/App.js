@@ -23,10 +23,12 @@ class App extends Component {
       cleanedPlanets: {},
       cleanedVehicles: {},
       cleanedPeople: {},
-      selected: ''
+      selected: '',
+      favorite: false
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.toggleFavorited = this.toggleFavorited.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -83,6 +85,15 @@ class App extends Component {
       });
   }
 
+  toggleFavorited(event) {
+    console.log('e.target: ', event.target);
+    console.log('class: ', event.target.classList);
+    event.target.classList.toggle('favorited');
+    this.setState({
+      favorited: !this.state.favorited
+    });
+  }
+
   handleClick(event) {
     this.setState({
       selected: event.target.value
@@ -109,6 +120,7 @@ class App extends Component {
                 planets={cleanedPlanets}
                 people={cleanedPeople}
                 selected={selected}
+                toggleFavorited={this.toggleFavorited}
               />
             </article>
             <article className='video-container'>
