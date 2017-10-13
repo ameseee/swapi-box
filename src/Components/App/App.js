@@ -23,10 +23,12 @@ class App extends Component {
       cleanedPlanets: {},
       cleanedVehicles: {},
       cleanedPeople: {},
-      selected: ''
+      selected: '',
+      favorited: false
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.toggleFavorited = this.toggleFavorited.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -83,6 +85,17 @@ class App extends Component {
       });
   }
 
+  toggleFavorited(event) {
+    console.log('e.target: ', event.target);
+    console.log('class: ', event.target.classList);
+    event.target.classList.toggle('favorited');
+    this.setState({
+      favorited: !this.state.favorited
+    });
+
+    console.log(this.state);
+  }
+
   handleClick(event) {
     this.setState({
       selected: event.target.value
@@ -101,7 +114,7 @@ class App extends Component {
           <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
           <ButtonContainer
             handleClick={this.handleClick}
-            selected={this.state.selected} />
+            selected={selected} />
           <section>
             <article className='cards'>
               <CardContainer
@@ -109,6 +122,7 @@ class App extends Component {
                 planets={cleanedPlanets}
                 people={cleanedPeople}
                 selected={selected}
+                toggleFavorited={this.toggleFavorited}
               />
             </article>
             <article className='video-container'>

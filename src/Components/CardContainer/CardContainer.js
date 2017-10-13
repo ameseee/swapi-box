@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import '../../index.css';
 
-const CardContainer = ({ vehicles, planets, people, selected }) => {
+const CardContainer = ({ vehicles, planets, people, selected, toggleFavorited }) => {
   const planetValues = Object.values(planets);
   const vehicleValues = Object.values(vehicles);
   const peopleValues = Object.values(people);
@@ -25,7 +25,8 @@ const CardContainer = ({ vehicles, planets, people, selected }) => {
       vehicleName={item.vehicleName}
       vehicleClass={item.vehicleClass}
       model={item.model}
-      passengers={item.passengers} />;
+      passengers={item.passengers}
+      toggleFavorited={toggleFavorited}/>;
   });
 
 };

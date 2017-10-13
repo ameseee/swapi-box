@@ -17,7 +17,8 @@ const ButtonContainer = ({ handleClick }) => {
         value={'planets'}
         handleClick={handleClick} />
       <Button
-        value={'faves'} />
+        value={'faves'}
+        handleClick={handleClick}/>
     </div>
   );
 

@@ -1,11 +1,7 @@
 export const cleanScroll = scrollData => {
   const scrollResults = scrollData.results;
-
   return scrollResults.map(film => {
-    const title = film.title;
-    const crawl = film.opening_crawl;
-    const releaseDate = film.release_date;
-    return [title, crawl, releaseDate];
+    return [film.title, film.opening_crawl, film.release_date];
   });
 };
 
@@ -22,15 +18,15 @@ export const cleanSpecies = (species, people) => {
   const speciesValues = Object.values(species);
   const peopleValues = Object.values(people);
 
-  return peopleValues.reduce((acc, person) => {
+  return peopleValues.reduce((scrubbedSpecies, person) => {
     const findSpeciesMatch = speciesValues.filter(type => {
       if (type.url === person.species[0]) {
-        acc[type.url] = type.name;
+        scrubbedSpecies[type.url] = type.name;
       }
       return findSpeciesMatch;
     });
 
-    return acc;
+    return scrubbedSpecies;
   }, {});
 };
 
@@ -38,53 +34,57 @@ const cleanPeople = (people, planets) => {
   const peopleValues = Object.values(people);
   const planetValues = Object.values(planets);
 
-  return peopleValues.reduce((acc, person) => {
+  return peopleValues.reduce((scrubbedPeople, person) => {
+    const { homeworld, url, name } = person;
     const findUrlMatch = planetValues.find(planet => {
-      if (planet.url === person.homeworld) {
-        return planet.name;
+      const { url, name } = planet;
+      if (url === homeworld) {
+        return name;
       }
       return findUrlMatch;
     });
 
-    acc[person.url] = {
-      name: person.name,
+    scrubbedPeople[url] = {
+      name: name,
       homeworld: findUrlMatch.name,
       population: findUrlMatch.population,
       species: 'species'
     };
 
-    return acc;
+    return scrubbedPeople;
   }, {});
 };
 
 const cleanVehicles = (vehicleResults) => {
   const vehicleValues = Object.values(vehicleResults);
 
-  return vehicleValues.reduce((acc, vehicle) => {
-    acc[vehicle.url] = {
-      name: vehicle.name,
-      model: vehicle.model,
-      vehicleClass: vehicle.vehicle_class,
-      passengers: vehicle.passengers
+  return vehicleValues.reduce((scrubbedVehicles, vehicle) => {
+    const { name, model, passengers, vehicle_class } = vehicle;
+    scrubbedVehicles[vehicle.url] = {
+      vehicleClass: vehicle_class,
+      name,
+      model,
+      passengers
     };
-    return acc;
+    return scrubbedVehicles;
   }, {});
 };
 
 const cleanPlanets = (planets, people) => {
   const planetValues = Object.values(planets);
 
-  return planetValues.reduce((acc, planet) => {
-    acc[planet.url] = {
-      name: planet.name,
-      terrain: planet.terrain,
-      climate: planet.climate,
-      population: planet.population,
-      residents: planet.residents.map(residentUrl => {
+  return planetValues.reduce((scrubbedPlanets, planet) => {
+    const { name, terrain, climate, population, residents, url } = planet;
+    scrubbedPlanets[url] = {
+      name,
+      terrain,
+      climate,
+      population,
+      residents: residents.map(residentUrl => {
         return people[residentUrl];
       })
     };
-    return acc;
+    return scrubbedPlanets;
   }, {});
 };
 
