@@ -24,7 +24,7 @@ class App extends Component {
       cleanedVehicles: {},
       cleanedPeople: {},
       selected: '',
-      favorite: false
+      favorited: false
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -92,6 +92,8 @@ class App extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
+
+    console.log(this.state);
   }
 
   handleClick(event) {

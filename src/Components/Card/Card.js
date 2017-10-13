@@ -18,10 +18,12 @@ const Card = ({
   toggleFavorited
 }) => {
 
+
+
   if (selected === 'people') {
     return (
       <article className='card'>
-        <div className='unfavorited' onClick={toggleFavorited}>fave</div>
+        <div onClick={toggleFavorited}>fave</div>
         <h4 className="person">Character</h4>
         <h4 className="person-name">NAME: {personName}</h4>
         <h4 className="homeworld">HOMEWORLD {homeworld}</h4>
