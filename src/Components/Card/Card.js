@@ -8,11 +8,13 @@ const Card = ({ toggleFavorited, ...attributes}) => {
     return <h4 key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
   });
   return (
-    <article className='card'>
-      <div onClick={toggleFavorited}>fave</div>
-      {cardContent}
-      <span className="card-background"></span>
-    </article>
+    <div>
+      <article className='card'>
+        <div className='unfavorited' onClick={toggleFavorited}>fave</div>
+        {cardContent}
+        <span className="card-background"></span>
+      </article>
+    </div>
   );
 };
 

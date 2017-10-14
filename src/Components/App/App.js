@@ -86,9 +86,20 @@ class App extends Component {
   }
 
   toggleFavorited(event) {
+    let tempFaves;
+    const thisNewFave = event.target.classList;
     event.target.classList.toggle('favorited');
+    event.target.classList.toggle('unfavorited');
     this.setState({
       favorited: !this.state.favorited
+    });
+
+    if (event.target.classList.value === 'favorited') {
+      tempFaves = [...this.state.favorites, thisNewFave];
+    }
+
+    this.setState({
+      favorites: tempFaves
     });
   }
 
