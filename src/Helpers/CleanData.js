@@ -35,12 +35,13 @@ const cleanPeople = (people, planets) => {
 
   return peopleValues.reduce((scrubbedPeople, person) => {
     const { homeworld, url, name } = person;
+    const planet = planets[homeworld];
 
     scrubbedPeople[url] = {
       url,
       name,
-      homeworld: planets[homeworld].name,
-      population: planets[homeworld].population,
+      homeworld: planet && planet.name,
+      population: planet && planet.population,
       species: 'species'
     };
 

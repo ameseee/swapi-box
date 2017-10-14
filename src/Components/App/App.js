@@ -94,6 +94,7 @@ class App extends Component {
   }
 
   handleClick(event) {
+    this.toggleActive(event.currentTarget);
     this.setState({
       selected: event.target.value
     });
@@ -107,39 +108,36 @@ class App extends Component {
 
   render() {
     const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll } = this.state;
-    if (!Object.keys({...this.state}).length) {
-      debugger;
+    if (!Object.keys(cleanedPeople).length) {
       return (
         <main>LOADING...</main>
       );
-    }  else {
-      return (
-        <main className="App">
-          <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
-          <ButtonContainer
-            handleClick={this.handleClick}
-            toggleActive={this.toggleActive}
-            selected={selected} />
-          <section>
-            <article className='cards'>
-              <CardContainer
-                vehicles={cleanedVehicles}
-                planets={cleanedPlanets}
-                people={cleanedPeople}
-                selected={selected}
-                toggleFavorited={this.toggleFavorited}
-              />
-            </article>
-            <article className='video-container'>
-              <Video />
-              {
-                scroll.length && <Scroll scrollData={scroll} />
-              }
-            </article>
-          </section>
-        </main>
-      );
     }
+    return (
+      <main className="App">
+        <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
+        <ButtonContainer
+          handleClick={this.handleClick}
+          selected={selected} />
+        <section>
+          <article className='cards'>
+            <CardContainer
+              vehicles={cleanedVehicles}
+              planets={cleanedPlanets}
+              people={cleanedPeople}
+              selected={selected}
+              toggleFavorited={this.toggleFavorited}
+            />
+          </article>
+          <article className='video-container'>
+            <Video />
+            {
+              scroll.length && <Scroll scrollData={scroll} />
+            }
+          </article>
+        </section>
+      </main>
+    );
   }
 }
 

@@ -3,34 +3,27 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import '../../index.css';
 
-const ButtonContainer = ({ handleClick, toggleActive }) => {
+const ButtonContainer = ({ handleClick }) => {
+
+  const buttons = ['vehicles', 'people', 'planets', 'faves'].map(value => {
+    return (
+      <Button
+        key={`button-${value}`}
+        value={value}
+        handleClick={handleClick} />
+    );
+  });
 
   return (
     <div className='button-container'>
-      <Button
-        value={'vehicles'}
-        handleClick={handleClick}
-        toggleActive={toggleActive}/>
-      <Button
-        value={'people'}
-        handleClick={handleClick}
-        toggleActive={toggleActive} />
-      <Button
-        value={'planets'}
-        handleClick={handleClick}
-        toggleActive={toggleActive} />
-      <Button
-        value={'faves'}
-        handleClick={handleClick}
-        toggleActive={toggleActive}/>
+      {buttons}
     </div>
   );
 
 };
 
 ButtonContainer.propTypes = {
-  handleClick: PropTypes.func,
-  selected: PropTypes.string
+  handleClick: PropTypes.func
 };
 
 export default ButtonContainer;
