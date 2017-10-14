@@ -24,7 +24,8 @@ class App extends Component {
       cleanedVehicles: {},
       cleanedPeople: {},
       selected: '',
-      favorited: false
+      favorited: false,
+      favorites: []
     };
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -86,20 +87,22 @@ class App extends Component {
   }
 
   toggleFavorited(event) {
-    console.log('e.target: ', event.target);
-    console.log('class: ', event.target.classList);
     event.target.classList.toggle('favorited');
     this.setState({
       favorited: !this.state.favorited
     });
-
-    console.log(this.state);
   }
 
   handleClick(event) {
     this.setState({
       selected: event.target.value
     });
+  }
+
+  toggleActive(itemBtn) {
+    const buttons = document.querySelectorAll('.item-button');
+    buttons.forEach(button => button.classList.remove('active'));
+    itemBtn.classList.toggle('active');
   }
 
   render() {
@@ -114,6 +117,7 @@ class App extends Component {
           <h1 className="main-title">SWAPI<span className="main-title-two">BOX</span></h1>
           <ButtonContainer
             handleClick={this.handleClick}
+            toggleActive={this.toggleActive}
             selected={selected} />
           <section>
             <article className='cards'>

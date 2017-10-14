@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import '../../index.css';
 
-const ButtonContainer = ({ handleClick }) => {
+const ButtonContainer = ({ handleClick, toggleActive }) => {
 
   return (
     <div className='button-container'>
       <Button
         value={'vehicles'}
-        handleClick={handleClick} />
+        handleClick={handleClick}
+        toggleActive={toggleActive}/>
       <Button
         value={'people'}
-        handleClick={handleClick} />
+        handleClick={handleClick}
+        toggleActive={toggleActive} />
       <Button
         value={'planets'}
-        handleClick={handleClick} />
+        handleClick={handleClick}
+        toggleActive={toggleActive} />
       <Button
         value={'faves'}
-        handleClick={handleClick}/>
+        handleClick={handleClick}
+        toggleActive={toggleActive}/>
     </div>
   );
 
