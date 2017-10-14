@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../index.css';
 
-const Button = ({value, handleClick, toggleActive}) => {
+const Button = ({value, handleClick }) => {
 
   return (
     <button
-      value={`${value}`}
-      // onClick={handleClick}
-      className="item-button"
-      onClick={(event) => (handleClick(event), toggleActive(event.currentTarget))} >
+      value={value}
+      onClick={handleClick}
+      className="item-button" >
       {value}
     </button>
   );
