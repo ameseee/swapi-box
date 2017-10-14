@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../index.css';
 
-const Card = ({ selected, toggleFavorited, ...attributes}) => {
+const Card = ({ toggleFavorited, ...attributes}) => {
   const attributeKeys = Object.keys(attributes);
   const cardContent = attributeKeys.map(attributeKey => {
-    return <h4 key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>
+    return <h4 key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
   });
-  return(
+  return (
     <article className='card'>
       <div onClick={toggleFavorited}>fave</div>
       {cardContent}
