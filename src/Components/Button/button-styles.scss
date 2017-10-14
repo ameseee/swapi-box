@@ -1,4 +1,4 @@
-button{
+.item-button {
   font-size: 15px;
   padding: 6px;
   width: 130px;
@@ -12,4 +12,8 @@ button{
 button:hover{
   background: #6893b8;
   cursor: pointer;
+}
+
+.active {
+  background-color: #6893b8;
 }
