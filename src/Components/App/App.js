@@ -108,6 +108,7 @@ class App extends Component {
   render() {
     const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll } = this.state;
     if (!Object.keys({...this.state}).length) {
+      debugger;
       return (
         <main>LOADING...</main>
       );
