@@ -10,6 +10,7 @@ import {
   indexRecords,
   cleanAllRecords
 } from '../../Helpers/CleanData';
+import {capitalizeFirstLetter} from '../../Helpers/helper';
 
 class App extends Component {
   constructor() {
@@ -23,6 +24,7 @@ class App extends Component {
       cleanedPlanets: {},
       cleanedVehicles: {},
       cleanedPeople: {},
+      cleanedSpecies: {},
       selected: '',
       favorited: false,
       favorites: []
@@ -37,12 +39,9 @@ class App extends Component {
       this.setState({
         [recordType]: indexRecords(records)
       }, () => {
-        if (Object.keys({...this.state}).length) {
+        if (Object.keys(this.state[recordType]).length) {
           this.setState({
-            cleanedPlanets: cleanAllRecords(this.state).planets,
-            cleanedVehicles: cleanAllRecords(this.state).vehicles,
-            cleanedPeople: cleanAllRecords(this.state).people,
-            cleanedSpecies: cleanAllRecords(this.state).species
+            [`cleaned${capitalizeFirstLetter(recordType)}`]: cleanAllRecords(this.state)[recordType]
           });
         }
       });
