@@ -32,6 +32,7 @@ class App extends Component {
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorited = this.toggleFavorited.bind(this);
+    this.saveFavorites = this.saveFavorites.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -86,21 +87,38 @@ class App extends Component {
   }
 
   toggleFavorited(event) {
-    let tempFaves;
-    const thisNewFave = event.target.classList;
     event.target.classList.toggle('favorited');
-    event.target.classList.toggle('unfavorited');
     this.setState({
       favorited: !this.state.favorited
     });
+    this.saveFavorites(event);
+  }
 
+  saveFavorites(event) {
     if (event.target.classList.value === 'favorited') {
-      tempFaves = [...this.state.favorites, thisNewFave];
+      const currentTargetChild = [...event.currentTarget.children];
+      const updateFaves = currentTargetChild.map(element => {
+        return element.innerHTML;
+      });
+
+      this.setState({
+        favorites: [...this.state.favorites, updateFaves]
+      });
+    } else {
+      const currentTargetChild = [...event.currentTarget.children];
+      const unclickToUnFave = this.state.favorites.filter(card => {
+
+        if (card[0] !== currentTargetChild[0].innerHTML) {
+            console.log('we are in IF');
+          return card;
+        }
+      });
+
+      this.setState({
+        favorites: unclickToUnFave
+      });
     }
 
-    this.setState({
-      favorites: tempFaves
-    });
   }
 
   handleClick(event) {
@@ -117,7 +135,7 @@ class App extends Component {
   }
 
   render() {
-    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll } = this.state;
+    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll, favorites } = this.state;
     if (!Object.keys(cleanedPeople).length) {
       return (
         <main>LOADING...</main>
@@ -135,6 +153,7 @@ class App extends Component {
               vehicles={cleanedVehicles}
               planets={cleanedPlanets}
               people={cleanedPeople}
+              favorites={favorites}
               selected={selected}
               toggleFavorited={this.toggleFavorited}
             />
