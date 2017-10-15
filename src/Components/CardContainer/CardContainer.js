@@ -5,7 +5,10 @@ import '../../index.css';
 
 //in here we need to map over favorites and return cards from that
 
-const CardContainer = ({ saveFavorites, selected, toggleFavorited, ...rest}) => {
+const CardContainer = ({ favorites, saveFavorites, selected, toggleFavorited, ...rest}) => {
+  if (selected === 'faves') {
+    console.log('selected: ', favorites);
+  }
   const itemValues = rest[selected] || {};
   return Object.values(itemValues).map(item => {
     return <Card

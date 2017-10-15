@@ -87,9 +87,7 @@ class App extends Component {
   }
 
   toggleFavorited(event) {
-    console.log('in toggleFave');
     event.target.classList.toggle('favorited');
-    // event.target.classList.toggle('unfavorited');
     this.setState({
       favorited: !this.state.favorited
     });
@@ -97,14 +95,14 @@ class App extends Component {
   }
 
   saveFavorites(event) {
-    if (event.target.classList.value) {
-      let updatesFavesWith = event.target.classList.value;
+    console.log(event.target.getAttribute('value'));
+    if (event.target.getAttribute('value')) {
+      let updatesFavesWith = event.target.getAttribute('value');
 
       this.setState({
         favorites: [...this.state.favorites, updatesFavesWith]
-      }, () => console.log('state faves after: ', this.state.favorites));
+      });
     }
-
   }
 
   handleClick(event) {
@@ -120,8 +118,12 @@ class App extends Component {
     itemBtn.classList.toggle('active');
   }
 
+  favesClick() {
+    //we want to render cards in favorites array
+  }
+
   render() {
-    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll } = this.state;
+    const { cleanedVehicles, cleanedPlanets, cleanedPeople, selected, scroll, favorites } = this.state;
     if (!Object.keys(cleanedPeople).length) {
       return (
         <main>LOADING...</main>
@@ -142,6 +144,7 @@ class App extends Component {
               selected={selected}
               toggleFavorited={this.toggleFavorited}
               saveFavorites={this.saveFavorites}
+              favorites={favorites}
             />
           </article>
           <article className='video-container'>

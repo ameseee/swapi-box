@@ -4,6 +4,7 @@ import '../../index.css';
 
 const Card = ({ saveFavorites, toggleFavorited, ...attributes}) => {
   const attributeKeys = Object.keys(attributes);
+
   const cardContent = attributeKeys.map(attributeKey => {
     return <h4 value={attributes[attributeKey]} key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
   });
