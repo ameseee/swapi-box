@@ -55,8 +55,8 @@ const cleanVehicles = (vehicleResults) => {
   return vehicleValues.reduce((scrubbedVehicles, vehicle) => {
     const { name, model, passengers, vehicle_class, url } = vehicle;
     scrubbedVehicles[url] = {
-      vehicleClass: vehicle_class,
       url,
+      vehicleClass: vehicle_class,
       name,
       model,
       passengers

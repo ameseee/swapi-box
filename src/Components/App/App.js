@@ -98,7 +98,7 @@ class App extends Component {
     if (event.target.classList.value === 'favorited') {
       const currentTargetChild = [...event.currentTarget.children];
       const updateFaves = currentTargetChild.map(element => {
-        return element.innerHTML;
+        return element.innerText;
       });
 
       this.setState({
@@ -108,7 +108,7 @@ class App extends Component {
       const currentTargetChild = [...event.currentTarget.children];
       const unclickToUnFave = this.state.favorites.filter(card => {
 
-        if (card[0] !== currentTargetChild[0].innerHTML) {
+        if (card[0] !== currentTargetChild[0].innerText) {
             console.log('we are in IF');
           return card;
         }
