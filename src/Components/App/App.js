@@ -95,9 +95,10 @@ class App extends Component {
   }
 
   saveFavorites(event) {
-    if (event.target.getAttribute('value')) {
+    // event.currenttarget.children is NOT an array element in favorites, then do this.
+    if (!this.state.favorited) {
+      console.log('in not favorited if block');
       const currentTargetChild = [...event.currentTarget.children];
-
       const updateFaves = currentTargetChild.map(element => {
         return element.innerHTML;
       });
@@ -106,6 +107,7 @@ class App extends Component {
         favorites: [...this.state.favorites, updateFaves]
       });
     }
+
   }
 
   handleClick(event) {
