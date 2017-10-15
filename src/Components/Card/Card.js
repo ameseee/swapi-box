@@ -5,13 +5,13 @@ import '../../index.css';
 const Card = ({ saveFavorites, toggleFavorited, ...attributes}) => {
   const attributeKeys = Object.keys(attributes);
   const cardContent = attributeKeys.map(attributeKey => {
-    return <h4 className={attributes[attributeKey]} key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
+    return <h4 value={attributes[attributeKey]} key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
   });
 
   return (
     <div>
-      <article className='card' onClick={saveFavorites}>
-        <div className='unfavorited' onClick={toggleFavorited}>fave</div>
+      <article className='card unfavorited'
+              onClick={toggleFavorited}>
         {cardContent}
         <span className="card-background"></span>
       </article>
