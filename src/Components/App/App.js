@@ -32,6 +32,7 @@ class App extends Component {
     this.fetchUntilAll = this.fetchUntilAll.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleFavorited = this.toggleFavorited.bind(this);
+    this.saveFavorites = this.saveFavorites.bind(this);
   }
 
   fetchUntilAll(url, recordType, records = []) {
@@ -86,21 +87,35 @@ class App extends Component {
   }
 
   toggleFavorited(event) {
+    console.log(Object.keys(this.state.cleanedPlanets));
     let tempFaves;
-    const thisNewFave = event.target.classList;
     event.target.classList.toggle('favorited');
     event.target.classList.toggle('unfavorited');
+    const thisNewFave = event.target.classList;
     this.setState({
       favorited: !this.state.favorited
     });
 
-    if (event.target.classList.value === 'favorited') {
-      tempFaves = [...this.state.favorites, thisNewFave];
-    }
-
+    //on click, we want to grab the URL key for the card.
+    console.log(event.target);
+  }
+    // if (event.target.classList.value === 'favorited') {
+    //   console.log('this newfave: ', thisNewFave);
+    //   tempFaves = [...this.state.favorites, thisNewFave];
+    // }
+    //
+    // //thisNewFave.forEach(fave => console.log('each fave: ', fave));
+    //
+    // this.setState({
+    //   favorites: tempFaves
+    // });
+  saveFavorites(event) {
+    let updatesFavesWith = event.target.classList.value;
+    console.log('state fave before: ', this.state.favorites);
     this.setState({
-      favorites: tempFaves
-    });
+      favorites: [...this.state.favorites, updatesFavesWith]
+    }, () => console.log('state faves after: ', this.state.favorites));
+    //console.log('value on click', event.target.classList.value);
   }
 
   handleClick(event) {
@@ -137,6 +152,7 @@ class App extends Component {
               people={cleanedPeople}
               selected={selected}
               toggleFavorited={this.toggleFavorited}
+              saveFavorites={this.saveFavorites}
             />
           </article>
           <article className='video-container'>

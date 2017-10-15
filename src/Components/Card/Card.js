@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../index.css';
 
-const Card = ({ toggleFavorited, ...attributes}) => {
+const Card = ({ saveFavorites, toggleFavorited, ...attributes}) => {
   const attributeKeys = Object.keys(attributes);
   const cardContent = attributeKeys.map(attributeKey => {
-    return <h4 key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
+    return <h4 className={attributes[attributeKey]} key={attributeKey}>{attributeKey}: {attributes[attributeKey]}</h4>;
   });
+
   return (
     <div>
-      <article className='card'>
+      <article className='card' onClick={saveFavorites}>
         <div className='unfavorited' onClick={toggleFavorited}>fave</div>
         {cardContent}
         <span className="card-background"></span>
@@ -32,7 +33,8 @@ Card.propTypes = {
   climate: PropTypes.string,
   residents: PropTypes.array,
   selected: PropTypes.string,
-  toggleFavorited: PropTypes.func
+  toggleFavorited: PropTypes.func,
+  saveFavorites: PropTypes.func
 };
 
 export default Card;
