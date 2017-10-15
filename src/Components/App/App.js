@@ -95,12 +95,15 @@ class App extends Component {
   }
 
   saveFavorites(event) {
-    console.log(event.target.getAttribute('value'));
     if (event.target.getAttribute('value')) {
-      let updatesFavesWith = event.target.getAttribute('value');
+      const currentTargetChild = [...event.currentTarget.children];
+
+      const updateFaves = currentTargetChild.map(element => {
+        return element.innerHTML;
+      });
 
       this.setState({
-        favorites: [...this.state.favorites, updatesFavesWith]
+        favorites: [...this.state.favorites, updateFaves]
       });
     }
   }
@@ -116,10 +119,6 @@ class App extends Component {
     const buttons = document.querySelectorAll('.item-button');
     buttons.forEach(button => button.classList.remove('active'));
     itemBtn.classList.toggle('active');
-  }
-
-  favesClick() {
-    //we want to render cards in favorites array
   }
 
   render() {
@@ -141,10 +140,9 @@ class App extends Component {
               vehicles={cleanedVehicles}
               planets={cleanedPlanets}
               people={cleanedPeople}
+              favorites={favorites}
               selected={selected}
               toggleFavorited={this.toggleFavorited}
-              saveFavorites={this.saveFavorites}
-              favorites={favorites}
             />
           </article>
           <article className='video-container'>

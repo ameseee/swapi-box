@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import '../../index.css';
 
-//in here we need to map over favorites and return cards from that
+const CardContainer = ({ favorites, selected, toggleFavorited, ...rest}) => {
 
-const CardContainer = ({ favorites, saveFavorites, selected, toggleFavorited, ...rest}) => {
   if (selected === 'faves') {
-    console.log('selected: ', favorites);
+    return favorites.map(fave => {
+      
+      return <Card
+        key={fave}
+        toggleFavorited={toggleFavorited}
+        {...fave} />;
+    });
   }
+
   const itemValues = rest[selected] || {};
   return Object.values(itemValues).map(item => {
     return <Card
       key={item.url}
       toggleFavorited={toggleFavorited}
-      saveFavorites={saveFavorites}
       {...item} />;
   });
 
