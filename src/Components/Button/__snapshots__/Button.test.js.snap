@@ -18,8 +18,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": undefined,
+      "className": "item-button",
       "onClick": undefined,
-      "value": "undefined",
+      "value": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -32,8 +33,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": undefined,
+        "className": "item-button",
         "onClick": undefined,
-        "value": "undefined",
+        "value": undefined,
       },
       "ref": null,
       "rendered": null,
