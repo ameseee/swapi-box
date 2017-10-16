@@ -31,6 +31,7 @@ ShallowWrapper {
           value="planets"
 />,
         <Button
+          handleClick={undefined}
           value="faves"
 />,
       ],
@@ -40,7 +41,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": null,
+        "key": "button-vehicles",
         "nodeType": "function",
         "props": Object {
           "handleClick": undefined,
@@ -52,7 +53,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": null,
+        "key": "button-people",
         "nodeType": "function",
         "props": Object {
           "handleClick": undefined,
@@ -64,7 +65,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": null,
+        "key": "button-planets",
         "nodeType": "function",
         "props": Object {
           "handleClick": undefined,
@@ -76,9 +77,10 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": null,
+        "key": "button-faves",
         "nodeType": "function",
         "props": Object {
+          "handleClick": undefined,
           "value": "faves",
         },
         "ref": null,
@@ -108,6 +110,7 @@ ShallowWrapper {
             value="planets"
 />,
           <Button
+            handleClick={undefined}
             value="faves"
 />,
         ],
@@ -117,7 +120,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": null,
+          "key": "button-vehicles",
           "nodeType": "function",
           "props": Object {
             "handleClick": undefined,
@@ -129,7 +132,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": null,
+          "key": "button-people",
           "nodeType": "function",
           "props": Object {
             "handleClick": undefined,
@@ -141,7 +144,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": null,
+          "key": "button-planets",
           "nodeType": "function",
           "props": Object {
             "handleClick": undefined,
@@ -153,9 +156,10 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": null,
+          "key": "button-faves",
           "nodeType": "function",
           "props": Object {
+            "handleClick": undefined,
             "value": "faves",
           },
           "ref": null,

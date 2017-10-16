@@ -34,187 +34,35 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Array [
     <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
+      0="L"
+      1="u"
+      2="k"
+      3="e"
+      toggleFavorited={undefined}
 />,
     <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
-/>,
-    <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
-/>,
-    <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
-/>,
-    <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
-/>,
-    <Card
-      climate={undefined}
-      homeworld={undefined}
-      model={undefined}
-      passengers={undefined}
-      personName={undefined}
-      planetName={undefined}
-      population={undefined}
-      residents={undefined}
-      selected="people"
-      species={undefined}
-      terrain={undefined}
-      vehicleClass={undefined}
-      vehicleName={undefined}
+      0="L"
+      1="e"
+      2="i"
+      3="a"
+      toggleFavorited={undefined}
 />,
   ],
   Symbol(enzyme.__nodes__): Array [
     Array [
       <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
+        0="L"
+        1="u"
+        2="k"
+        3="e"
+        toggleFavorited={undefined}
 />,
       <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
-/>,
-      <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
-/>,
-      <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
-/>,
-      <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
-/>,
-      <Card
-        climate={undefined}
-        homeworld={undefined}
-        model={undefined}
-        passengers={undefined}
-        personName={undefined}
-        planetName={undefined}
-        population={undefined}
-        residents={undefined}
-        selected="people"
-        species={undefined}
-        terrain={undefined}
-        vehicleClass={undefined}
-        vehicleName={undefined}
+        0="L"
+        1="e"
+        2="i"
+        3="a"
+        toggleFavorited={undefined}
 />,
     ],
   ],
