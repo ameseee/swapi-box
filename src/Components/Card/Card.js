@@ -9,7 +9,7 @@ const Card = ({ toggleFavorited, ...attributes}) => {
     if (attributeKey === 'url') {
       return (
         <button value={attributes[attributeKey]} key={attributeKey}>
-          <img className="icon" src="../../assets/heart-shape-outline.svg" />
+          click to favorite!
         </button>
       );
     } else {
