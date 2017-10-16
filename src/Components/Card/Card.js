@@ -6,11 +6,19 @@ const Card = ({ toggleFavorited, ...attributes}) => {
   const attributeKeys = Object.keys(attributes);
 
   const cardContent = attributeKeys.map(attributeKey => {
-    return (
-      <h4 value={attributes[attributeKey]} key={attributeKey}>
-        <span className="info-title">{attributeKey}:</span> {attributes[attributeKey]}
-      </h4>
-    );
+    if (attributeKey === 'url') {
+      return (
+        <button value={attributes[attributeKey]} key={attributeKey}>
+          click to favorite!
+        </button>
+      );
+    } else {
+      return (
+        <h4 value={attributes[attributeKey]} key={attributeKey}>
+          <span className="info-title">{attributeKey}:</span> {attributes[attributeKey]}
+        </h4>
+      );
+    }
   });
 
   return (
