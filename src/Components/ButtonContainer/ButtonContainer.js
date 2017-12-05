@@ -5,7 +5,7 @@ import '../../index.css';
 
 const ButtonContainer = ({ handleClick }) => {
 
-  const buttons = ['vehicles', 'people', 'planets', 'faves'].map(value => {
+  const buttons = ['vehicles', 'people', 'planets'].map(value => {
     return (
       <Button
         key={`button-${value}`}

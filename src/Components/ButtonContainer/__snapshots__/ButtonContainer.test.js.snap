@@ -30,10 +30,6 @@ ShallowWrapper {
           handleClick={undefined}
           value="planets"
 />,
-        <Button
-          handleClick={undefined}
-          value="faves"
-/>,
       ],
       "className": "button-container",
     },
@@ -75,18 +71,6 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": "button-faves",
-        "nodeType": "function",
-        "props": Object {
-          "handleClick": undefined,
-          "value": "faves",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
     ],
     "type": "div",
   },
@@ -108,10 +92,6 @@ ShallowWrapper {
           <Button
             handleClick={undefined}
             value="planets"
-/>,
-          <Button
-            handleClick={undefined}
-            value="faves"
 />,
         ],
         "className": "button-container",
@@ -149,18 +129,6 @@ ShallowWrapper {
           "props": Object {
             "handleClick": undefined,
             "value": "planets",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "button-faves",
-          "nodeType": "function",
-          "props": Object {
-            "handleClick": undefined,
-            "value": "faves",
           },
           "ref": null,
           "rendered": null,

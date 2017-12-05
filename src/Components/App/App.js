@@ -109,7 +109,6 @@ class App extends Component {
       const unclickToUnFave = this.state.favorites.filter(card => {
 
         if (card[0] !== currentTargetChild[0].innerText) {
-            console.log('we are in IF');
           return card;
         }
       });
