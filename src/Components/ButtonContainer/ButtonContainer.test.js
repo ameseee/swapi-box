@@ -5,8 +5,17 @@ import Adapter from 'enzyme-adapter-react-16';
 import config from '../../setupTests.js';
 
 describe('<ButtonContainer />', () => {
-  const mkFun = jest.fn();
   let wrapper = shallow(<ButtonContainer />);
+
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  });
+
+  it('should render a div', () => {
+    const div = wrapper.find('.button-container');
+
+    expect(div.length).toEqual(1);
+  });
 
   it('should match the Card snapshot', () => {
 

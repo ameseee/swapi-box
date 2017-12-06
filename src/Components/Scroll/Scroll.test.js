@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Scroll from './Scroll';
 
 describe('<Scroll/>', () => {
@@ -15,6 +15,42 @@ describe('<Scroll/>', () => {
   ];
 
   const wrapper = shallow(<Scroll scrollData={mockScroll}/>);
+
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  });
+
+  it('should render a scroll div', () => {
+    const scroll = wrapper.find('.scroll');
+
+    expect(scroll.length).toEqual(1);
+  });
+
+  it('should render a fade div', () => {
+    const fade = wrapper.find('.fade');
+
+    expect(fade.length).toEqual(1);
+  });
+
+  it('should render a star-wars div', () => {
+    const starWars = wrapper.find('.star-wars');
+
+    expect(starWars.length).toEqual(1);
+  });
+
+  it('should render a crawl div', () => {
+    const crawl = wrapper.find('.crawl');
+
+    expect(crawl.length).toEqual(1);
+  });
+
+  it('should render three pieces of text', () => {
+    const text = wrapper.find('p');
+
+    expect(text.length).toEqual(3);
+  });
+
+
 
   it('should render a div with className scroll', () => {
     expect(wrapper.find('.scroll')).toHaveLength(1);

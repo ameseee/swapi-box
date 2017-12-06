@@ -8,6 +8,23 @@ describe('CARD', () => {
   const mkFun = jest.fn();
   let wrapper = shallow(<Card />);
 
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  });
+
+  it('should render a containing div', () => {
+    const div = wrapper.find('div');
+
+    expect(div.length).toEqual(1);
+  });
+
+  it('should render a card article', () => {
+    const div = wrapper.find('.card');
+
+    expect(div.length).toEqual(1);
+  });
+
+
   it('should match the Card snapshot', () => {
 
     expect(wrapper).toMatchSnapshot();
