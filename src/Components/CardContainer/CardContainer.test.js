@@ -1,8 +1,6 @@
 import React from 'react';
 import CardContainer from './CardContainer';
 import { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import config from '../../setupTests.js';
 
 describe('<CardContainer />', () => {
   let wrapper = shallow(<CardContainer

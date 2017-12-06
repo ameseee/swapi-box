@@ -1,8 +1,6 @@
 import React from 'react';
 import Button from './Button';
 import { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import config from '../../setupTests.js';
 
 describe('<Button />', () => {
   let wrapper = shallow(<Button />);
