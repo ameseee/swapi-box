@@ -2,7 +2,7 @@
 
 This project focuses on displaying data from the Star Wars api using nested API calls, and is build with React utilizing reusable, modular components. 
 
-<img width="1265" alt="screen shot 2017-12-05 at 12 52 10 pm" src="https://user-images.githubusercontent.com/25447342/33810248-aa1a790e-ddbf-11e7-89fc-e5bef4286da6.png">
+<img width="1258" alt="screen shot 2017-12-05 at 12 56 29 pm" src="https://user-images.githubusercontent.com/25447342/33810271-e290fbbe-ddbf-11e7-8a23-bc0f6f11afa0.png">
 
 <img width="1265" alt="screen shot 2017-12-05 at 12 52 10 pm" src="https://user-images.githubusercontent.com/25447342/33810249-ab9cefb4-ddbf-11e7-8105-719af69232b9.png">
 
